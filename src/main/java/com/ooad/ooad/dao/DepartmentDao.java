@@ -27,6 +27,7 @@ public class DepartmentDao {
                 String name = result.getString("name");
                 String address = result.getString("address");
                 Department department = new Department(id, name, address);
+		depList.add(department);
             }
         } catch (SQLException e) {
             e.printStackTrace();
