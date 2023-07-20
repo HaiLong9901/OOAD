@@ -8,6 +8,13 @@ public class Manager {
     private String password;
     private boolean isActive;
 
+    public Manager(int id, String name, String email, String phone) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+    }
+
     public Manager(String name, String email, String phone, String password) {
         this.name = name;
         this.email = email;
