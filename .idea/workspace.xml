@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="667a073a-0fa9-450a-856f-a3e299a99fab" name="Changes" comment="update 03/07">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/dao/EquipmentDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/entity/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/entity/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/entity/Equipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/entity/Equipment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/utils/DBUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/utils/DBUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/ooad/ooad/ManagerMainForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/ooad/ooad/ManagerMainForm.fxml" afterDir="false" />
     </list>
@@ -18,8 +21,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>

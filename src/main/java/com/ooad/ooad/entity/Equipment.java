@@ -14,7 +14,8 @@ public class Equipment {
     public Equipment() {
     }
 
-    public Equipment(String name, String model, Date purchase, Date expiry, int depId, long price) {
+    public Equipment(int id, String name, String model, Date purchase, Date expiry, int depId, long price) {
+        this.id = id;
         this.name = name;
         this.model = model;
         this.purchase = purchase;
