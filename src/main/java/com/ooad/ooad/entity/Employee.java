@@ -7,17 +7,14 @@ public class Employee {
     private String email;
     private String password;
     private boolean isActive;
-    private String devision;
-
     public Employee() {
     }
 
-    public Employee(String name, String phone, String email, String password, String devision) {
+    public Employee(String name, String phone, String email, String password) {
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.password = password;
-        this.devision = devision;
     }
 
     public int getId() {
@@ -68,13 +65,7 @@ public class Employee {
         isActive = active;
     }
 
-    public String getDevision() {
-        return devision;
-    }
 
-    public void setDevision(String devision) {
-        this.devision = devision;
-    }
 
     @Override
     public String toString() {
@@ -85,7 +76,6 @@ public class Employee {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", isActive=" + isActive +
-                ", devision='" + devision + '\'' +
                 '}';
     }
 }

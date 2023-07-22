@@ -3,7 +3,7 @@ import java.sql.*;
 public class DBUtil {
     public static Connection connectDB() {
         try {
-            Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/ooad", "root", "root");
+            Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/ooad", "root", "Thanh@123");
             if (connect != null) {
                 System.out.println("Connect to DB");
                 System.out.println(connect);

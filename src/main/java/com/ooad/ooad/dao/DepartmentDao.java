@@ -15,7 +15,7 @@ public class DepartmentDao {
     private ResultSet result;
     private PreparedStatement prepare;
 
-    public List<Department> getAllDepartment() {
+    public List<Department> getAllDepartment() throws SQLException{
         connection = DBUtil.connectDB();
         String sql = "select * from ooad.department";
         ArrayList<Department> depList = new ArrayList<>();
@@ -27,11 +27,24 @@ public class DepartmentDao {
                 String name = result.getString("name");
                 String address = result.getString("address");
                 Department department = new Department(id, name, address);
-		depList.add(department);
+                depList.add(department);
             }
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return depList;
+    }
+
+    public void createDepartment(Department department) throws SQLException{
+        connection = DBUtil.connectDB();
+        String sql = "insert into ooad.department(name, address) values(?,?)";
+        try {
+            prepare = connection.prepareStatement(sql);
+            prepare.setString(1, department.getName());
+            prepare.setString(2, department.getAddress());
+            prepare.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

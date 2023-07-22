@@ -8,5 +8,6 @@ module com.ooad.ooad {
     requires java.sql;
 
     opens com.ooad.ooad.controller to javafx.fxml;
+    opens com.ooad.ooad.entity to javafx.base;
     exports com.ooad.ooad;
 }

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="350.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ooad.ooad.controller.CreateDepartmentController">
+   <children>
+      <Label layoutX="20.0" layoutY="97.0" text="Tên phòng" />
+      <TextField fx:id="depNameInput" layoutX="20.0" layoutY="122.0" promptText=" Nhập tên phòng ban" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+      <TextField fx:id="depAddressInput" layoutX="20.0" layoutY="205.0" promptText="Nhập địa chỉ phòng ban" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+      <Label layoutX="20.0" layoutY="178.0" text="Địa chỉ phòng" />
+      <Button fx:id="createBtn" layoutX="20.0" layoutY="262.0" mnemonicParsing="false" onMouseClicked="#createDep" prefHeight="40.0" text="Xác nhận" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+      <Label layoutX="77.0" layoutY="38.0" text="Thêm phòng ban">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

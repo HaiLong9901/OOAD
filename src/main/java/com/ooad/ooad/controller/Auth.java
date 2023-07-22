@@ -1,12 +1,18 @@
 package com.ooad.ooad.controller;
 
+import com.ooad.ooad.OOADApplication;
+import com.ooad.ooad.shared.GlobalState;
 import com.ooad.ooad.utils.AlertMessage;
 import com.ooad.ooad.utils.DBUtil;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.sql.Connection;
@@ -42,21 +48,17 @@ public class Auth implements Initializable {
 
     ObservableList<String> roleList = FXCollections.observableArrayList("manager", "leader", "employee");
 
-    public void showAlert() {
-        alert.errorMessage("Error");
-    }
-
     public void login() {
         String phoneNumber = phoneNum.getText();
         String pass = password.getText();
 
         if (phoneNumber.length() == 0 || pass.length() == 0) {
-            alert.errorMessage("You must fill all the required information!");
+            alert.errorMessage("Bạn phải điền đầy đủ thông tin!");
             return;
         }
         String role = roles.getValue();
         if (role == null || role.length() == 0) {
-            alert.errorMessage("You must select role!");
+            alert.errorMessage("Bạn phải chọn vai trò!");
             return;
         }
 
@@ -71,8 +73,22 @@ public class Auth implements Initializable {
                 System.out.println("Password from db: " + passwordDB);
                 System.out.println("Password: " + pass);
                 if (passwordDB.equals(pass)) {
+                    GlobalState.managerPhone = phoneNumber;
                     alert.successMessage("Login successfully!");
-                    return;
+                    Parent root = FXMLLoader.load(OOADApplication.class.getResource("ManagerMainForm.fxml"));
+                    Stage stage = new Stage();
+                    stage.setTitle("Trang quản lý");
+                    stage.setScene(new Scene(root));
+                    stage.show();
+
+                    loginBtn.getScene().getWindow().hide();
+//                    Stage stage = new Stage();
+//                    FXMLLoader fxmlLoader = new FXMLLoader(OOADApplication.class.getResource("ManagerMainForm.fxml"));
+//                    Scene scene = new Scene(fxmlLoader.load(), 350, 500);
+//                    stage.setTitle("Login");
+//                    stage.setScene(scene);
+//                    stage.show();
+
                 }
                 else {
                     alert.errorMessage("Password is incorrect!");
@@ -81,7 +97,7 @@ public class Auth implements Initializable {
                 alert.errorMessage("Phone number doesn't exist!");
                 return;
             }
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
