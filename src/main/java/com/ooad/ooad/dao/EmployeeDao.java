@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class EmployeeDao {
     Connection connection;
@@ -26,5 +28,27 @@ public class EmployeeDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public List<Employee> getAllEmployee() throws SQLException{
+        connection = DBUtil.connectDB();
+        String sql = "select * from ooad.employee where isactive=true";
+        ArrayList<Employee> employeesList = new ArrayList<>();
+        try {
+            prepare = connection.prepareStatement(sql);
+            result = prepare.executeQuery();
+            while (result.next()) {
+                int id = result.getInt("id");
+                String name = result.getString("name");
+                String phone = result.getString("phone");
+                String email = result.getString("email");
+                String password = result.getString("password");
+                Employee employee = new Employee(id, name, phone, email, password);
+                employeesList.add(employee);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return  employeesList;
     }
 }

@@ -70,12 +70,25 @@
                                           <TableColumn fx:id="accDelCol" prefWidth="105.5999755859375" text="Xóa" />
                                       </columns>
                                     </TableView>
+                                    <TableView fx:id="employeeTable" prefHeight="498.0" prefWidth="881.0" visible="false" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                                       <columns>
+                                          <TableColumn fx:id="empId" prefWidth="98.4000244140625" text="Mã tài khoản" />
+                                          <TableColumn fx:id="empName" prefWidth="128.0" text="Họ và tên" />
+                                          <TableColumn minWidth="0.0" prefWidth="0.0" text="Column X" />
+                                          <TableColumn fx:id="empEmail" prefWidth="150.39993286132812" text="Email" />
+                                          <TableColumn minWidth="0.0" prefWidth="0.0" text="Column X" />
+                                          <TableColumn fx:id="empPhone" prefWidth="135.20001220703125" text="Số điện thoại" />
+                                          <TableColumn fx:id="empDetail" prefWidth="108.00006103515625" text="Xem chi tiết" />
+                                          <TableColumn fx:id="empUpdate" prefWidth="111.99993896484375" text="Cập nhật" />
+                                          <TableColumn fx:id="empDel" prefWidth="105.5999755859375" text="Xóa" />
+                                       </columns>
+                                    </TableView>
                                  </children>
                               </AnchorPane>
                               <AnchorPane prefHeight="60.0" prefWidth="882.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                                  <children>
                                     <Button fx:id="createAccBtn" layoutX="669.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#redirectToCreateAccForm" prefHeight="40.0" prefWidth="200.0" text="Thêm tài khoản" AnchorPane.rightAnchor="20.0" />
-                                    <ComboBox fx:id="rolesComboBox" layoutX="441.0" layoutY="10.0" prefHeight="40.0" prefWidth="200.0" promptText="Chọn vai trò" AnchorPane.rightAnchor="240.0" />
+                                    <ComboBox fx:id="rolesComboBox" layoutX="441.0" layoutY="10.0" onAction="#switchAccountTable" prefHeight="40.0" prefWidth="200.0" promptText="Chọn vai trò" AnchorPane.rightAnchor="240.0" />
                                     <Label layoutX="21.0" layoutY="12.0" text="Quản lý tài khoản">
                                        <font>
                                           <Font name="System Bold" size="24.0" />

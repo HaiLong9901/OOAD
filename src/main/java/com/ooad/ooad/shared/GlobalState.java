@@ -7,4 +7,7 @@ public class GlobalState {
     public static String managerPhone;
     public static Integer managerId;
     public static ObservableList<Manager> managersList;
+    public static Manager selectedManager;
+
+//    public static Thread managerThread =
 }

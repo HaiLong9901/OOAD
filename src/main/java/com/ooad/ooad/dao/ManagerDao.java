@@ -27,7 +27,8 @@ public class ManagerDao {
                 String name = result.getString("name");
                 String email = result.getString("email");
                 String phoneNum = result.getString("phone");
-                Manager manager = new Manager(id, name, email, phoneNum);
+                String password = result.getString("password");
+                Manager manager = new Manager(id, name, email, phoneNum, password);
                 return  manager;
             }
         } catch (Exception e) {
@@ -78,6 +79,22 @@ public class ManagerDao {
         String sql = "update ooad.manager set isactive=false where id=" + managerId;
         try {
             prepare = connection.prepareStatement(sql);
+            prepare.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateManager(Manager manager) throws SQLException {
+        connection = DBUtil.connectDB();
+        String sql = "update ooad.manager set name=?, phone=?, password=?, email=? where id=?";
+        try {
+            prepare = connection.prepareStatement(sql);
+            prepare.setString(1, manager.getName());
+            prepare.setString(2, manager.getPhone());
+            prepare.setString(3, manager.getPassword());
+            prepare.setString(4, manager.getEmail());
+            prepare.setInt(5, manager.getId());
             prepare.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
