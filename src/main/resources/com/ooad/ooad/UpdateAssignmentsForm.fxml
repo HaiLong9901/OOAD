@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ooad.ooad.controller.CreateAccountController">
+    <children>
+        <TextField fx:id="nameEpllnput" layoutX="33.0" layoutY="92.0" prefHeight="26.0" promptText="Nhập mã người quản lý" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="67.0" />
+        <TextField fx:id="nameStaffInput" layoutX="33.0" layoutY="167.0" prefHeight="26.0" prefWidth="400.0" promptText="Nhập mã nhân viên được giao việc" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="67.0" />
+        <TextField fx:id="assdateInput" layoutX="33.0" layoutY="297.0" prefHeight="26.0" prefWidth="400.0" promptText="Nhập ngày giao việc" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="67.0" />
+        <Label layoutX="40.0" layoutY="67.0" text="Mã quản lý" />
+        <Label layoutX="40.0" layoutY="134.0" text="Mã nhân viên" />
+        <Label layoutX="40.0" layoutY="267.0" text="Ngày giao việc" />
+        <ComboBox fx:id="depsComboBox" layoutX="50.0" layoutY="444.0" prefWidth="150.0" promptText="Phòng ban" visible="false" />
+        <Label layoutX="84.0" layoutY="14.0" text="Cập nhập phiếu giao việc">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Label>
+        <Button fx:id="submitBtn" layoutX="40.0" layoutY="449.0" mnemonicParsing="false" onMouseClicked="#createAccount" prefHeight="40.0" text="Xác nhận" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="60.0" />
+        <Label layoutX="40.0" layoutY="336.0" text="Ngày hoàn thành dự kiến" />
+        <TextField fx:id="assfinishdateInput" layoutX="33.0" layoutY="363.0" prefHeight="26.0" prefWidth="300.0" promptText="Nhập ngày giao việc" />
+        <Label layoutX="40.0" layoutY="206.0" text="Công việc được giao" />
+        <TextField fx:id="taskInput" layoutX="33.0" layoutY="233.0" prefHeight="26.0" prefWidth="300.0" promptText="Nhập tên công việc được giao" />
+    </children>
+</AnchorPane>

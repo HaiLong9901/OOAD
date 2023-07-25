@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ooad.ooad.controller.CreateAccountController">
+    <children>
+        <TextField fx:id="managerId" layoutX="33.0" layoutY="140.0" prefHeight="26.0" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="67.0" />
+        <TextField fx:id="employId" layoutX="31.0" layoutY="257.0" prefHeight="26.0" prefWidth="400.0" AnchorPane.leftAnchor="31.0" AnchorPane.rightAnchor="69.0" />
+        <TextField fx:id="createdAt" layoutX="33.0" layoutY="317.0" prefHeight="26.0" prefWidth="400.0" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="67.0" />
+        <Label layoutX="41.0" layoutY="116.0" text="Mã quản lý" />
+        <Label layoutX="36.0" layoutY="232.0" text="Mã nhân viên" />
+        <ComboBox fx:id="depsComboBox" layoutX="50.0" layoutY="444.0" prefWidth="150.0" promptText="Phòng ban" visible="false" />
+        <Label layoutX="118.0" layoutY="14.0" text="Chi tiết phiếu giao việc">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Label>
+        <TextField fx:id="expectation" layoutX="33.0" layoutY="376.0" prefHeight="26.0" prefWidth="300.0" />
+      <Label layoutX="35.0" layoutY="353.0" text="Ngày hoàn thành dự kiến" />
+      <TextField fx:id="status" layoutX="33.0" layoutY="437.0" prefHeight="26.0" prefWidth="300.0" />
+      <Label layoutX="41.0" layoutY="59.0" text="Mã yêu cầu" />
+      <TextField fx:id="requestId" layoutX="31.0" layoutY="84.0" prefHeight="26.0" prefWidth="300.0" />
+      <Label layoutX="36.0" layoutY="176.0" text="Mã thiết bị" />
+      <TextField fx:id="equipmentId" layoutX="33.0" layoutY="200.0" prefHeight="26.0" prefWidth="300.0" />
+      <Label layoutX="36.0" layoutY="292.0" text="Ngày yêu cầu" />
+      <Label layoutX="38.0" layoutY="414.0" text="Trạng thái" />
+      <Label layoutX="38.0" layoutY="475.0" text="Mã phiếu" />
+      <TextField fx:id="assignId" layoutX="31.0" layoutY="501.0" prefHeight="26.0" prefWidth="300.0" />
+    </children>
+</AnchorPane>

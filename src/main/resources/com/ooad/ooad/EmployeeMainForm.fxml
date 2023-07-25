@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ooad.ooad.controller.ManagerFormeController">
+    <children>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+            <children>
+                <BorderPane layoutX="222.0" layoutY="183.0" prefHeight="600.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <top>
+                        <AnchorPane prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                            <children>
+                                <AnchorPane layoutX="-52.0" layoutY="-86.0" prefHeight="40.0" prefWidth="220.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="880.0" AnchorPane.topAnchor="0.0">
+                                    <children>
+                                        <Label layoutX="46.0" layoutY="11.0" text="Hệ thống quản lý sửa chữa" />
+                                    </children>
+                                </AnchorPane>
+                                <Label layoutX="762.0" layoutY="11.0" text="Xin chào," />
+                                <Label fx:id="userNameHeader" layoutX="821.0" layoutY="11.0" text="Đỗ Hải Long" />
+                                <Label fx:id="dateHeader" layoutX="1016.0" layoutY="11.0" text="08/07/2023" />
+                            </children>
+                        </AnchorPane>
+                    </top>
+                    <left>
+                        <AnchorPane fx:id="adminTaskBar" prefHeight="560.0" prefWidth="220.0" BorderPane.alignment="CENTER">
+                            <children>
+                                <FontAwesomeIcon glyphName="USER" layoutX="82.0" layoutY="86.0" size="6em" />
+                                <Label layoutX="14.0" layoutY="103.0" text="Mã quản lý:" />
+                                <Label fx:id="userIdLabel" layoutX="82.0" layoutY="103.0" text="01" />
+                                <Label layoutX="14.0" layoutY="121.0" text="Họ và tên:" />
+                                <Label fx:id="userNameLabel" layoutX="75.0" layoutY="121.0" text="Đỗ Hải Long" />
+                                <Line endX="100.0" layoutX="110.0" layoutY="154.0" startX="-100.0" />
+                                <Button fx:id="manageReportBtn" layoutX="9.0" layoutY="214.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="40.0" prefWidth="200.0" text="Quản lý báo cáo hỏng hóc" />
+                                <Button fx:id="manageAssignBtn" layoutX="11.0" layoutY="280.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="40.0" prefWidth="200.0" text="Quản lý giao việc" />
+                                <Button fx:id="manageBillBtn" layoutX="11.0" layoutY="343.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="40.0" prefWidth="200.0" text="Quản lý hóa đơn sửa chữa" />
+                                <Button fx:id="logoutBtn" layoutX="11.0" layoutY="405.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" text="Đăng xuất" />
+                            </children>
+                        </AnchorPane>
+                    </left>
+                    <center>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                            <children>
+                                <AnchorPane fx:id="depManagementLayout" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <children>
+                                        <AnchorPane prefHeight="497.0" prefWidth="882.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="63.0">
+                                            <children>
+                                                <TableView fx:id="billTable" prefHeight="498.0" prefWidth="881.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                                                    <columns>
+                                                        <TableColumn fx:id="billid" prefWidth="81.60000610351562" text="Mã hóa đơn" />
+                                                        <TableColumn minWidth="0.0" prefWidth="0.0" text="Column X" />
+                                                        <TableColumn fx:id="billName" prefWidth="118.0" text="Mã nhân viên" />
+                                                        <TableColumn fx:id="billEquiment" minWidth="0.0" prefWidth="113.0" text="Mã thiết bị" />
+                                          <TableColumn fx:id="billDate" prefWidth="134.0" text="Ngày tạo hóa đơn" />
+                                          <TableColumn fx:id="billTotalcost" minWidth="0.0" prefWidth="120.0" text="Tổng chi phí" />
+                                          <TableColumn fx:id="billDetails" minWidth="0.0" prefWidth="133.0" text="Xem chi tiết" />
+                                          <TableColumn fx:id="depName2" prefWidth="138.0" text="Cập nhập" />
+                                                    </columns>
+                                                </TableView>
+                                            </children>
+                                        </AnchorPane>
+                                        <AnchorPane prefHeight="60.0" prefWidth="882.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                            <children>
+                                                <Button fx:id="createBillBtn" layoutX="669.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#redirectToCreateDepForm" prefHeight="40.0" prefWidth="200.0" text="Tạo hóa đơn" AnchorPane.rightAnchor="20.0" />
+                                                <Label fx:id="billsId" layoutX="21.0" layoutY="12.0" text="Quản lý hóa đơn sửa chữa">
+                                                    <font>
+                                                        <Font name="System Bold" size="24.0" />
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </AnchorPane>
+                                    </children>
+                                </AnchorPane>
+                        <AnchorPane fx:id="depManagementLayout1" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane prefHeight="497.0" prefWidth="882.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="63.0">
+                                 <children>
+                                    <TableView fx:id="assTable" prefHeight="498.0" prefWidth="881.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                                       <columns>
+                                          <TableColumn fx:id="assBill" prefWidth="76.0" text="Mã phiếu " />
+                                          <TableColumn fx:id="assRequest" minWidth="0.0" prefWidth="89.0" text="Mã yêu cầu" />
+                                          <TableColumn fx:id="assManager" minWidth="0.0" prefWidth="84.0" text="Mã quản lý" />
+                                          <TableColumn fx:id="assEmployee" prefWidth="89.0" text="Mã nhân viên" />
+                                          <TableColumn fx:id="assEquipment" prefWidth="74.0" text="Mã thiết bị" />
+                                          <TableColumn fx:id="assState" minWidth="0.0" prefWidth="73.0" text="Trạng thái " />
+                                          <TableColumn fx:id="assDate" prefWidth="82.0" text="Ngày giao" />
+                                          <TableColumn fx:id="assFinishday" prefWidth="98.0" text="Ngày kết thúc" />
+                                          <TableColumn fx:id="assDetail" minWidth="0.0" prefWidth="109.0" text="Xem chi tiết" />
+                                          <TableColumn fx:id="assUpdate" prefWidth="65.0" text="Cập nhập" />
+                                       </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="60.0" prefWidth="882.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                 <children>
+                                    <Label fx:id="assignid" layoutX="21.0" layoutY="12.0" text="Quản lý giao việc">
+                                       <font>
+                                          <Font name="System Bold" size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="createAssBtn" layoutX="681.0" layoutY="10.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="149.0" text="Tạo phiếu giao việc" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                            </children></AnchorPane>
+                    </center>
+                </BorderPane>
+            </children>
+        </AnchorPane>
+    </children>
+</StackPane>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ooad.ooad.controller.CreateAccountController">
+    <children>
+        <TextField fx:id="billidInput" layoutX="33.0" layoutY="92.0" prefHeight="26.0" promptText="Nhập mã hóa đơn" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="67.0" />
+        <TextField fx:id="nameInput" layoutX="33.0" layoutY="167.0" prefHeight="26.0" prefWidth="400.0" promptText="Nhập mã nhân viên" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="67.0" />
+        <TextField fx:id="billdateInput" layoutX="33.0" layoutY="297.0" prefHeight="26.0" prefWidth="400.0" promptText="Nhập ngày tạo hóa đơn" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="67.0" />
+        <Label layoutX="40.0" layoutY="67.0" text="Mã hóa đơn" />
+        <Label layoutX="40.0" layoutY="134.0" text="Mã nhân viên" />
+        <Label layoutX="40.0" layoutY="267.0" text="Ngày tạo hóa đơn" />
+        <ComboBox fx:id="depsComboBox" layoutX="50.0" layoutY="444.0" prefWidth="150.0" promptText="Phòng ban" visible="false" />
+        <Label layoutX="118.0" layoutY="14.0" text="Tạo hóa đơn sửa chữa">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Label>
+        <Button fx:id="submitBtn" layoutX="40.0" layoutY="449.0" mnemonicParsing="false" onMouseClicked="#createAccount" prefHeight="40.0" text="Tạo hóa đơn" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="60.0" />
+        <Label layoutX="40.0" layoutY="336.0" text="Tổng chi phí" />
+        <TextField fx:id="billcostInput" layoutX="33.0" layoutY="363.0" prefHeight="26.0" prefWidth="300.0" promptText="Nhập số tiền" />
+        <Label layoutX="40.0" layoutY="206.0" text="Mã thiết bị" />
+        <TextField fx:id="equipmentInput" layoutX="33.0" layoutY="233.0" prefHeight="26.0" prefWidth="300.0" promptText="Nhập mã thiết bị" />
+    </children>
+</AnchorPane>
