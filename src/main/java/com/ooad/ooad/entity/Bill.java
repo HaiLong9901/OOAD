@@ -5,16 +5,16 @@ import java.util.Date;
 public class Bill {
     private int id;
     private int empId;
-    private int eqipId;
+    private String equipId;
     private Date createdAt;
     private long total;
 
     public Bill() {
     }
 
-    public Bill(int empId, int eqipId, Date createdAt, long total) {
+    public Bill(int empId, String equipId, Date createdAt, long total) {
         this.empId = empId;
-        this.eqipId = eqipId;
+        this.equipId = equipId;
         this.createdAt = createdAt;
         this.total = total;
     }
@@ -35,12 +35,12 @@ public class Bill {
         this.empId = empId;
     }
 
-    public int getEqipId() {
-        return eqipId;
+    public String getEquipId() {
+        return equipId;
     }
 
-    public void setEqipId(int eqipId) {
-        this.eqipId = eqipId;
+    public void setEquipId(String equipId) {
+        this.equipId = equipId;
     }
 
     public Date getCreatedAt() {
@@ -64,7 +64,7 @@ public class Bill {
         return "Bill{" +
                 "id=" + id +
                 ", empId=" + empId +
-                ", eqipId=" + eqipId +
+                ", eqipId=" + equipId +
                 ", createdAt=" + createdAt +
                 ", total=" + total +
                 '}';

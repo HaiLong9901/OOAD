@@ -5,7 +5,9 @@ import java.util.Date;
 public class Request {
     private int id;
     private int leader;
+    private String equipId;
     private Date createdAt;
+    private String descfault;
 
     public Request() {
     }
@@ -37,6 +39,20 @@ public class Request {
 
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
+    }
+    public String getEquipId() {
+        return equipId;
+    }
+
+    public void setEquipId(String equipId) {
+        this.equipId = equipId;
+    }
+    public String getDescfault() {
+        return descfault;
+    }
+
+    public void setDescfault(String descfault) {
+        this.descfault = descfault;
     }
 
     @Override

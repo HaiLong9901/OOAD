@@ -4,6 +4,7 @@ import com.ooad.ooad.OOADApplication;
 import com.ooad.ooad.dao.DepartmentDao;
 import com.ooad.ooad.dao.ManagerDao;
 import com.ooad.ooad.entity.Department;
+import com.ooad.ooad.entity.Employee;
 import com.ooad.ooad.entity.Manager;
 import com.ooad.ooad.shared.GlobalState;
 import com.ooad.ooad.utils.AlertMessage;
@@ -115,6 +116,30 @@ public class ManagerFormeController implements Initializable {
     @FXML
     private Label userNameLabel;
 
+    @FXML
+    private TableColumn<Employee, Void> empDel;
+
+    @FXML
+    private TableColumn<Employee, Void> empDetail;
+
+    @FXML
+    private TableColumn<Employee, String> empEmail;
+
+    @FXML
+    private TableColumn<Employee, Integer> empId;
+
+    @FXML
+    private TableColumn<Employee, String> empName;
+
+    @FXML
+    private TableColumn<Employee, String> empPhone;
+
+    @FXML
+    private TableColumn<Employee, Void> empUpdate;
+
+    @FXML
+    private TableView<Employee> employeeTable;
+
     private AlertMessage alert = new AlertMessage();
 
     public void switchForm(ActionEvent event) {
@@ -131,33 +156,54 @@ public class ManagerFormeController implements Initializable {
 
     }
 
-    public void runTime() {
-        Thread managerThread = new Thread() {
-
-            public void run() {
-                try {
-                    while (true) {
-                        try {
-                            GlobalState.managersList = FXCollections.observableArrayList(managerDao.getAllManager());
-                            tableView.setItems(GlobalState.managersList);
-                        }catch (SQLException e) {
-                            e.printStackTrace();
+    public void switchAccountTable(ActionEvent event) {
+        if (rolesComboBox.getValue() == "manager") {
+            tableView.setVisible(true);
+            employeeTable.setVisible(false);
+            managerThread = new Thread() {
+                public void run() {
+                    try {
+                        while (true) {
+                            try {
+                                GlobalState.managersList = FXCollections.observableArrayList(managerDao.getAllManager());
+                                tableView.setItems(GlobalState.managersList);
+                            }catch (SQLException e) {
+                                e.printStackTrace();
+                            }
+                            Thread.sleep(1000);
                         }
-                        Thread.sleep(1000);
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
-                } catch (Exception e) {
-                    e.printStackTrace();
                 }
-            }
-        };
-
-        if (accountManagementLayout.isVisible()) {
+            };
             managerThread.start();
-        } else {
+        } else if (rolesComboBox.getValue() == "employee") {
+            tableView.setVisible(false);
+            employeeTable.setVisible(true);
             managerThread.interrupt();
-        }
 
+        }
     }
+
+    private Thread managerThread = new Thread() {
+
+        public void run() {
+            try {
+                while (true) {
+                    try {
+                        GlobalState.managersList = FXCollections.observableArrayList(managerDao.getAllManager());
+                        tableView.setItems(GlobalState.managersList);
+                    }catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                    Thread.sleep(1000);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    };
 
     public void displayAdminAccount() {
         try {
@@ -210,7 +256,20 @@ public class ManagerFormeController implements Initializable {
                     {
                         button.setOnAction(event -> {
                             Manager manager = getTableView().getItems().get(getIndex());
-                            System.out.println("detail: "  +manager.toString());
+                            try {
+                                GlobalState.selectedManager = managerDao.getManagerByPhone(manager.getPhone());
+                            } catch (SQLException e) {
+                                e.printStackTrace();
+                            }
+                            try {
+                                Parent root = FXMLLoader.load(OOADApplication.class.getResource("DetailManagerForm.fxml"));
+                                Stage stage = new Stage();
+                                stage.setTitle("Thông tin quản lý");
+                                stage.setScene(new Scene(root));
+                                stage.show();
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
                         });
                     }
 
@@ -240,6 +299,153 @@ public class ManagerFormeController implements Initializable {
                             } catch (SQLException e) {
                                 e.printStackTrace();
                             }
+                        });
+                    }
+
+                    @Override
+                    protected void updateItem(Void item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (empty) {
+                            setGraphic(null);
+                        } else {
+                            setGraphic(button);
+                        }
+                    }
+                };
+            }
+        });
+        accUpdateCol.setCellFactory(new Callback<TableColumn<Manager, Void>, TableCell<Manager, Void>>() {
+            @Override
+            public TableCell<Manager, Void> call(TableColumn<Manager, Void> managerVoidTableColumn) {
+                return new TableCell<>() {
+                    private final Button button = new Button("Cập nhật");
+                    {
+                        button.setOnAction(event -> {
+                            Manager manager = getTableView().getItems().get(getIndex());
+                            try {
+                                GlobalState.selectedManager = managerDao.getManagerByPhone(manager.getPhone());
+                            } catch (SQLException e) {
+                                e.printStackTrace();
+                            }
+                            try {
+                                Parent root = FXMLLoader.load(OOADApplication.class.getResource("UpdateManagerForm.fxml"));
+                                Stage stage = new Stage();
+                                stage.setTitle("Cập nhật quản lý");
+                                stage.setScene(new Scene(root));
+                                stage.show();
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        });
+                    }
+
+                    @Override
+                    protected void updateItem(Void item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (empty) {
+                            setGraphic(null);
+                        } else {
+                            setGraphic(button);
+                        }
+                    }
+                };
+            }
+        });
+    }
+
+    public void displayEmployeeTable() {
+        empId.setCellValueFactory(new PropertyValueFactory<Employee, Integer>("id"));
+        empName.setCellValueFactory(new PropertyValueFactory<Employee, String>("name"));
+        empEmail.setCellValueFactory(new PropertyValueFactory<Employee, String>("email"));
+        empPhone.setCellValueFactory(new PropertyValueFactory<Employee, String>("phone"));
+        empDetail.setCellFactory(new Callback<TableColumn<Employee, Void>, TableCell<Employee, Void>>() {
+            @Override
+            public TableCell<Employee, Void> call(TableColumn<Employee, Void> managerVoidTableColumn) {
+                return new TableCell<>() {
+                    private final Button button = new Button("Xem chi tiết");
+                    {
+                        button.setOnAction(event -> {
+                            Employee employee = getTableView().getItems().get(getIndex());
+//                            try {
+//                                GlobalState.selectedManager = managerDao.getManagerByPhone(manager.getPhone());
+//                            } catch (SQLException e) {
+//                                e.printStackTrace();
+//                            }
+//                            try {
+//                                Parent root = FXMLLoader.load(OOADApplication.class.getResource("DetailManagerForm.fxml"));
+//                                Stage stage = new Stage();
+//                                stage.setTitle("Thông tin quản lý");
+//                                stage.setScene(new Scene(root));
+//                                stage.show();
+//                            } catch (Exception e) {
+//                                e.printStackTrace();
+//                            }
+                        });
+                    }
+
+                    @Override
+                    protected void updateItem(Void item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (empty) {
+                            setGraphic(null);
+                        } else {
+                            setGraphic(button);
+                        }
+                    }
+                };
+            }
+        });
+        empDel.setCellFactory(new Callback<TableColumn<Employee, Void>, TableCell<Employee, Void>>() {
+            @Override
+            public TableCell<Employee, Void> call(TableColumn<Employee, Void> managerVoidTableColumn) {
+                return new TableCell<>() {
+                    private final Button button = new Button("Xóa");
+                    {
+                        button.setOnAction(event -> {
+//                            Manager manager = getTableView().getItems().get(getIndex());
+//                            alert.confirmationMessage("Bạn có muốn xóa tài khoản này ?");
+//                            try {
+//                                managerDao.deleteManager(manager.getId());
+//                            } catch (SQLException e) {
+//                                e.printStackTrace();
+//                            }
+                        });
+                    }
+
+                    @Override
+                    protected void updateItem(Void item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (empty) {
+                            setGraphic(null);
+                        } else {
+                            setGraphic(button);
+                        }
+                    }
+                };
+            }
+        });
+        empUpdate.setCellFactory(new Callback<TableColumn<Employee, Void>, TableCell<Employee, Void>>() {
+            @Override
+            public TableCell<Employee, Void> call(TableColumn<Employee, Void> managerVoidTableColumn) {
+                return new TableCell<>() {
+                    private final Button button = new Button("Cập nhật");
+                    {
+                        button.setOnAction(event -> {
+//                            Manager manager = getTableView().getItems().get(getIndex());
+//                            try {
+//                                GlobalState.selectedManager = managerDao.getManagerByPhone(manager.getPhone());
+//                            } catch (SQLException e) {
+//                                e.printStackTrace();
+//                            }
+//                            try {
+//                                Parent root = FXMLLoader.load(OOADApplication.class.getResource("UpdateManagerForm.fxml"));
+//                                Stage stage = new Stage();
+//                                stage.setTitle("Cập nhật quản lý");
+//                                stage.setScene(new Scene(root));
+//                                stage.show();
+//                            } catch (Exception e) {
+//                                e.printStackTrace();
+//                            }
                         });
                     }
 
@@ -287,18 +493,14 @@ public class ManagerFormeController implements Initializable {
             }
         };
 
-//        if (depManagementLayout.isVisible()) {
-//            thread.start();
-//        } else {
-//            thread.interrupt();
-//        }
         thread.start();
     }
     @Override
     public void initialize(URL location, ResourceBundle resourceBundle) {
-        if (accountManagementLayout.isVisible()) {
-            runTime();
-        }
+//        if (accountManagementLayout.isVisible()) {
+//            runTime();
+//        }
+        managerThread.start();
         ObservableList<String> roleList = FXCollections.observableArrayList("manager", "leader", "employee");
         rolesComboBox.setItems(roleList);
         rolesComboBox.setValue("manager");

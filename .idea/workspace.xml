@@ -5,13 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="667a073a-0fa9-450a-856f-a3e299a99fab" name="Changes" comment="update 03/07">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/dao/EquipmentDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/controller/DetailAssignmentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/controller/DetailAssignmentDialogController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/controller/DetailBillController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/controller/DetailBillDialogController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/controller/DetailEquipmentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/controller/DetailRequestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/controller/DetailRequestDialogController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/ooad/ooad/DetailAssignmentForm.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/ooad/ooad/DetailBillForm.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/ooad/ooad/DetailRequestForm.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/entity/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/entity/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/entity/Equipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/entity/Equipment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/utils/DBUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/utils/DBUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ooad/ooad/ManagerMainForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/ooad/ooad/ManagerMainForm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/entity/Assignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/entity/Assignment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/entity/Bill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/entity/Bill.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/entity/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/entity/Request.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/shared/GlobalState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/shared/GlobalState.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +30,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -43,7 +52,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/Doc/20222/New folder/OOAD",
+    "last_opened_file_path": "D:/Doc/20222/24-7/OOAD",
     "nodejs_package_manager_path": "npm"
   }
 }]]></component>
@@ -92,7 +101,13 @@
       <workItem from="1689750085079" duration="100000" />
       <workItem from="1689755793492" duration="5660000" />
       <workItem from="1689783548555" duration="4751000" />
-      <workItem from="1689847930127" duration="599000" />
+      <workItem from="1689847930127" duration="6486000" />
+      <workItem from="1689906103161" duration="6528000" />
+      <workItem from="1689928505617" duration="11000" />
+      <workItem from="1689951351067" duration="2175000" />
+      <workItem from="1689954702152" duration="25000" />
+      <workItem from="1690040048318" duration="4648000" />
+      <workItem from="1690104245167" duration="2394000" />
     </task>
     <servers />
   </component>

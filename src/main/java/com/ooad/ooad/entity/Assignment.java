@@ -6,7 +6,7 @@ public class Assignment {
     private int id;
     private int requestId;
     private int managerId;
-    private int empId;
+    private String empId;
     private int status;
     private Date createdAt;
     private Date expectation;
@@ -15,7 +15,7 @@ public class Assignment {
     public Assignment() {
     }
 
-    public Assignment(int requestId, int managerId, int empId, int status, Date createdAt, Date expectation, int equipId) {
+    public Assignment(int requestId, int managerId, String empId, int status, Date createdAt, Date expectation, int equipId) {
         this.requestId = requestId;
         this.managerId = managerId;
         this.empId = empId;
@@ -49,11 +49,11 @@ public class Assignment {
         this.managerId = managerId;
     }
 
-    public int getEmpId() {
+    public String getEmpId() {
         return empId;
     }
 
-    public void setEmpId(int empId) {
+    public void setEmpId(String empId) {
         this.empId = empId;
     }
 

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="346.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ooad.ooad.controller.DetailAssignmentDialogController">
+    <children>
+        <Label layoutX="30.0" layoutY="103.0" text="Mã quản lý:" />
+        <Label layoutX="30.0" layoutY="136.0" text="Mã thiết bị: " />
+        <Label layoutX="30.0" layoutY="168.0" text="Mã NV SC:" />
+        <Label layoutX="30.0" layoutY="200.0" text="Ngày yêu cầu:" />
+        <Label layoutX="106.0" layoutY="14.0" text="Thông tin giao việc">
+            <font>
+                <Font name="System Bold" size="24.0" />
+            </font>
+        </Label>
+        <Label layoutX="30.0" layoutY="72.0" text="Mã yêu cầu:" />
+        <Label fx:id="requestId" layoutX="129.0" layoutY="72.0" />
+        <Label fx:id="managerId" layoutX="129.0" layoutY="103.0" />
+        <Label fx:id="equipmentId" layoutX="129.0" layoutY="136.0" />
+        <Label fx:id="employId" layoutX="129.0" layoutY="168.0" />
+        <Label fx:id="createdAt" layoutX="129.0" layoutY="200.0" />
+      <Label layoutX="31.0" layoutY="233.0" text="Ngày KT" />
+      <Label layoutX="31.0" layoutY="264.0" text="Trạng thái:" />
+      <Label fx:id="expectation" layoutX="129.0" layoutY="234.0" />
+      <Label fx:id="status" layoutX="129.0" layoutY="264.0" />
+      <Label layoutX="31.0" layoutY="294.0" text="Mã phiếu:" />
+      <Label fx:id="assignId" layoutX="129.0" layoutY="295.0" />
+    </children>
+</AnchorPane>
