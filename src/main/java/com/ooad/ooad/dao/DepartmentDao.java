@@ -47,4 +47,23 @@ public class DepartmentDao {
             e.printStackTrace();
         }
     }
+
+    public Department getDepartmentById(int id) throws SQLException {
+        connection = DBUtil.connectDB();
+        String sql = "select * from ooad.department where id=" + id;
+        Department department = new Department();
+        try {
+            prepare = connection.prepareStatement(sql);
+            result = prepare.executeQuery();
+            while (result.next()) {
+                String name = result.getString("name");
+                String address = result.getString("address");
+                department.setName(name);
+                department.setAddress(address);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return department;
+    }
 }

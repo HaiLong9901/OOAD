@@ -5,19 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="667a073a-0fa9-450a-856f-a3e299a99fab" name="Changes" comment="update 03/07">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/controller/DetailManagerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/controller/LeaderFormController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/controller/UpdateManagerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/ooad/ooad/DetailManagerForm.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/ooad/ooad/LeaderMainForm.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/ooad/ooad/UpdateManagerForm.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/controller/CreateEquipmentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/controller/DetailEquipController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/controller/UpdateEquipController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/dao/EquipmentDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/ooad/ooad/CreateEquipForm.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/ooad/ooad/DetailEquipForm.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/ooad/ooad/UpdateEquipForm.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/controller/Auth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/controller/Auth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/controller/LeaderFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/controller/LeaderFormController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/controller/ManagerFormeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/controller/ManagerFormeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/controller/UpdateManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/controller/UpdateManagerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/dao/DepartmentDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/dao/DepartmentDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/dao/EmployeeDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/dao/EmployeeDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/dao/ManagerDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/dao/ManagerDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/entity/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/entity/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/entity/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/entity/Manager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/dao/LeaderDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/dao/LeaderDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/entity/Equipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/entity/Equipment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/entity/Leader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/entity/Leader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/shared/GlobalState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/shared/GlobalState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/utils/DBUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/utils/DBUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ooad/ooad/LeaderMainForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/ooad/ooad/LeaderMainForm.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/ooad/ooad/ManagerMainForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/ooad/ooad/ManagerMainForm.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -105,7 +112,14 @@
       <workItem from="1689951351067" duration="2175000" />
       <workItem from="1689954702152" duration="25000" />
       <workItem from="1690040048318" duration="4648000" />
-      <workItem from="1690104245167" duration="2394000" />
+      <workItem from="1690104245167" duration="3291000" />
+      <workItem from="1690273747450" duration="9000" />
+      <workItem from="1690283145002" duration="7708000" />
+      <workItem from="1690342424659" duration="7000" />
+      <workItem from="1690472041084" duration="3010000" />
+      <workItem from="1690537810924" duration="3540000" />
+      <workItem from="1690598409426" duration="11000" />
+      <workItem from="1690621704548" duration="8976000" />
     </task>
     <servers />
   </component>
@@ -143,9 +157,9 @@
           <option name="timeStamp" value="3" />
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ooad/ooad/controller/LeaderFormController.java</url>
-          <line>64</line>
-          <option name="timeStamp" value="4" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/ooad/ooad/controller/ManagerFormeController.java</url>
+          <line>758</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

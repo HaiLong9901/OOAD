@@ -12,6 +12,15 @@ public class Leader {
     public Leader() {
     }
 
+    public Leader(int id, String name, String phone, String email, String password, int depId) {
+        this.id = id;
+        this.name = name;
+        this.phone = phone;
+        this.email = email;
+        this.password = password;
+        this.depId = depId;
+    }
+
     public Leader(String name, String phone, String email, String password, int depId) {
         this.name = name;
         this.phone = phone;

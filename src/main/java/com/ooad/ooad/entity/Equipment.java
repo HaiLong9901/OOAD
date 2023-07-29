@@ -3,7 +3,7 @@ package com.ooad.ooad.entity;
 import java.util.Date;
 
 public class Equipment {
-    private int id;
+    private String id;
     private String name;
     private String model;
     private Date purchase;
@@ -11,7 +11,19 @@ public class Equipment {
     private int depId;
     private long price;
 
+    private boolean isactive;
+
     public Equipment() {
+    }
+
+    public Equipment(String id, String name, String model, Date purchase, Date expiry, int depId, long price) {
+        this.id = id;
+        this.name = name;
+        this.model = model;
+        this.purchase = purchase;
+        this.expiry = expiry;
+        this.depId = depId;
+        this.price = price;
     }
 
     public Equipment(String name, String model, Date purchase, Date expiry, int depId, long price) {
@@ -23,11 +35,11 @@ public class Equipment {
         this.price = price;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

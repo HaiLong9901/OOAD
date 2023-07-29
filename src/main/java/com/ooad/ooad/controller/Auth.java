@@ -1,6 +1,7 @@
 package com.ooad.ooad.controller;
 
 import com.ooad.ooad.OOADApplication;
+import com.ooad.ooad.dao.LeaderDao;
 import com.ooad.ooad.shared.GlobalState;
 import com.ooad.ooad.utils.AlertMessage;
 import com.ooad.ooad.utils.DBUtil;
@@ -46,6 +47,8 @@ public class Auth implements Initializable {
     private PreparedStatement prepare;
     private ResultSet result;
 
+    private LeaderDao leaderDao = new LeaderDao();
+
     ObservableList<String> roleList = FXCollections.observableArrayList("manager", "leader", "employee");
 
     public void login() {
@@ -73,21 +76,28 @@ public class Auth implements Initializable {
                 System.out.println("Password from db: " + passwordDB);
                 System.out.println("Password: " + pass);
                 if (passwordDB.equals(pass)) {
-                    GlobalState.managerPhone = phoneNumber;
-                    alert.successMessage("Login successfully!");
-                    Parent root = FXMLLoader.load(OOADApplication.class.getResource("ManagerMainForm.fxml"));
-                    Stage stage = new Stage();
-                    stage.setTitle("Trang quản lý");
-                    stage.setScene(new Scene(root));
-                    stage.show();
+                    if (role.equals("manager")) {
+                        GlobalState.managerPhone = phoneNumber;
+                        alert.successMessage("Login successfully!");
+                        System.out.println("Manager UI");
+                        Parent root = FXMLLoader.load(OOADApplication.class.getResource("ManagerMainForm.fxml"));
+                        Stage stage = new Stage();
+                        stage.setTitle("Trang quản lý");
+                        stage.setScene(new Scene(root));
+                        stage.show();
+                    }
+                    else if (role.equals("leader")) {
+                        GlobalState.loggedinLeader = leaderDao.getLeaderByPhone(phoneNumber);
+                        Parent root = FXMLLoader.load(OOADApplication.class.getResource("LeaderMainForm.fxml"));
+                        Stage stage = new Stage();
+                        stage.setTitle("Trang trưởng phòng");
+                        stage.setScene(new Scene(root));
+                        stage.show();
+                    } else {
+
+                    }
 
                     loginBtn.getScene().getWindow().hide();
-//                    Stage stage = new Stage();
-//                    FXMLLoader fxmlLoader = new FXMLLoader(OOADApplication.class.getResource("ManagerMainForm.fxml"));
-//                    Scene scene = new Scene(fxmlLoader.load(), 350, 500);
-//                    stage.setTitle("Login");
-//                    stage.setScene(scene);
-//                    stage.show();
 
                 }
                 else {

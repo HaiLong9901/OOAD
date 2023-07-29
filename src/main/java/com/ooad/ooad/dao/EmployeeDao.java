@@ -44,11 +44,23 @@ public class EmployeeDao {
                 String email = result.getString("email");
                 String password = result.getString("password");
                 Employee employee = new Employee(id, name, phone, email, password);
+                System.out.println(employee.toString());
                 employeesList.add(employee);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
         return  employeesList;
+    }
+
+    public void deleteEmployee(int employeeId) throws SQLException {
+        connection = DBUtil.connectDB();
+        String sql = "update ooad.employee set isactive=false where id=" + employeeId;
+        try {
+            prepare = connection.prepareStatement(sql);
+            prepare.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
