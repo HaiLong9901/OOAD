@@ -110,4 +110,28 @@ public class EquipmentDao {
             e.printStackTrace();
         }
     }
+
+    public List<Equipment> getEquipmentByDepId(int depId) throws SQLException {
+        connection = DBUtil.connectDB();
+        String sql = "select * from ooad.equipment where depid="+depId + " and isactive=true";
+        List<Equipment> equipmentList = new ArrayList<>();
+        try {
+            prepare = connection.prepareStatement(sql);
+            result = prepare.executeQuery();
+            while (result.next()) {
+                String id = result.getString("id");
+                String name = result.getString("name");
+                String model = result.getString("model");
+                Date purchase = result.getDate("purchase");
+                Date expiry = result.getDate("expiry");
+                int depid = result.getInt("depid");
+                int price = result.getInt("price");
+                Equipment equipment = new Equipment(id, name, model, purchase, expiry, depid, price);
+                equipmentList.add(equipment);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return equipmentList;
+    }
 }

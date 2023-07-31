@@ -1,8 +1,14 @@
 package com.ooad.ooad.controller;
 
 import com.ooad.ooad.dao.DepartmentDao;
+import com.ooad.ooad.dao.EquipmentDao;
 import com.ooad.ooad.entity.Department;
+import com.ooad.ooad.entity.Employee;
+import com.ooad.ooad.entity.Equipment;
+import com.ooad.ooad.shared.GlobalState;
 import com.ooad.ooad.utils.AlertMessage;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -26,6 +32,8 @@ public class CreateDepartmentController implements Initializable {
     private AlertMessage alert = new AlertMessage();
 
     private DepartmentDao departmentDao = new DepartmentDao();
+
+    private EquipmentDao equipmentDao = new EquipmentDao();
 
     public void createDep() {
         if(depAddressInput.getText().isEmpty() || depNameInput.getText().isEmpty()) {

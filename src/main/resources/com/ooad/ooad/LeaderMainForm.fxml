@@ -2,7 +2,6 @@
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -39,69 +38,35 @@
                                 <Label layoutX="14.0" layoutY="121.0" text="Họ và tên:" />
                                 <Label fx:id="userNameLabel" layoutX="75.0" layoutY="121.0" text="Đỗ Hải Long" />
                                 <Line endX="100.0" layoutX="110.0" layoutY="154.0" startX="-100.0" />
-                                <Button fx:id="manageEquipmentBtn" layoutX="8.0" layoutY="184.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" text="Quản lý thiết bị" />
-                                <Button fx:id="logoutBtn" layoutX="8.0" layoutY="295.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" text="Đăng xuất" />
-                        <Button fx:id="manageRequestBtn" layoutX="8.0" layoutY="240.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" text="Quản lý báo cáo hỏng hóc" />
+                                <Button fx:id="manageEquipmentBtn" layoutX="8.0" layoutY="184.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="40.0" prefWidth="200.0" text="Quản lý thiết bị" />
+                                <Button fx:id="logoutBtn" layoutX="8.0" layoutY="295.0" mnemonicParsing="false" onMouseClicked="#logout" prefHeight="40.0" prefWidth="200.0" text="Đăng xuất" />
+                        <Button fx:id="manageRequestBtn" layoutX="8.0" layoutY="240.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="40.0" prefWidth="200.0" text="Quản lý báo cáo hỏng hóc" />
                             </children>
                         </AnchorPane>
                     </left>
                     <center>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                             <children>
-                                <AnchorPane fx:id="accountManagementLayout" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                    <children>
-                                        <AnchorPane prefHeight="497.0" prefWidth="882.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="55.0">
-                                            <children>
-                                                <TableView fx:id="tableView" prefHeight="498.0" prefWidth="881.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
-                                                    <columns>
-                                                        <TableColumn fx:id="accId" prefWidth="98.4000244140625" text="Mã tài khoản" />
-                                                        <TableColumn fx:id="accName" prefWidth="128.0" text="Họ và tên" />
-                                                        <TableColumn minWidth="0.0" prefWidth="0.0" text="Column X" />
-                                                        <TableColumn fx:id="accEmail" prefWidth="150.39993286132812" text="Email" />
-                                                        <TableColumn minWidth="0.0" prefWidth="0.0" text="Column X" />
-                                                        <TableColumn fx:id="accPhoneNum" prefWidth="135.20001220703125" text="Số điện thoại" />
-                                                        <TableColumn fx:id="accDetailCol" prefWidth="108.00006103515625" text="Xem chi tiết" />
-                                                        <TableColumn fx:id="accUpdateCol" prefWidth="111.99993896484375" text="Cập nhật" />
-                                                        <TableColumn fx:id="accDelCol" prefWidth="105.5999755859375" text="Xóa" />
-                                                    </columns>
-                                                </TableView>
-                                            </children>
-                                        </AnchorPane>
-                                        <AnchorPane prefHeight="60.0" prefWidth="882.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-                                            <children>
-                                                <Button fx:id="createAccBtn" layoutX="669.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" text="Thêm tài khoản" AnchorPane.rightAnchor="20.0" />
-                                                <ComboBox fx:id="rolesComboBox" layoutX="441.0" layoutY="10.0" prefHeight="40.0" prefWidth="200.0" promptText="Chọn vai trò" AnchorPane.rightAnchor="240.0" />
-                                                <Label layoutX="21.0" layoutY="12.0" text="Quản lý tài khoản">
-                                                    <font>
-                                                        <Font name="System Bold" size="24.0" />
-                                                    </font>
-                                                </Label>
-                                            </children>
-                                        </AnchorPane>
-                                    </children>
-                                </AnchorPane>
-                                <AnchorPane fx:id="reqManagementLayout" layoutY="-6.0" prefHeight="566.0" prefWidth="880.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-6.0">
+                                <AnchorPane fx:id="reqManagementLayout" layoutY="-6.0" prefHeight="566.0" prefWidth="880.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                     <children>
                                         <AnchorPane prefHeight="497.0" prefWidth="882.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="63.0">
                                             <children>
-                                                <TableView fx:id="reqTable" layoutX="15.0" layoutY="14.0" prefHeight="463.0" prefWidth="845.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="14.0">
+                                                <TableView fx:id="reqTable" layoutX="15.0" layoutY="14.0" prefHeight="463.0" prefWidth="845.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
                                                     <columns>
                                                         <TableColumn fx:id="reqId" prefWidth="81.60000610351562" text="Mã báo cáo" />
                                                         <TableColumn minWidth="0.0" prefWidth="0.0" text="Column X" />
                                                         <TableColumn minWidth="0.0" prefWidth="0.0" text="Column X" />
-                                                        <TableColumn fx:id="reqName" prefWidth="120.0" text="Mã trưởng phòng" />
-                                                        <TableColumn fx:id="reqTime" minWidth="0.0" prefWidth="108.800048828125" text="Ngày yêu cầu" />
-                                          <TableColumn fx:id="reqCode" prefWidth="105.60003662109375" text="Mã thiết bị" />
-                                          <TableColumn fx:id="reqStatus" prefWidth="117.5999755859375" text="Tình trạng thiết bị" />
-                                          <TableColumn fx:id="reqError" minWidth="0.0" prefWidth="221.60003662109375" text="Mô tả lỗi" />
-                                          <TableColumn fx:id="reqDetail" prefWidth="85.79998779296875" text="Xem chi tiết" />
+                                                        <TableColumn fx:id="reqTime" minWidth="0.0" prefWidth="181.5999755859375" text="Ngày yêu cầu" />
+                                          <TableColumn fx:id="reqCode" prefWidth="132.00009155273438" text="Mã thiết bị" />
+                                          <TableColumn fx:id="reqError" minWidth="0.0" prefWidth="257.60003662109375" text="Mô tả lỗi" />
+                                          <TableColumn fx:id="reqDetail" prefWidth="187.199951171875" text="Xem chi tiết" />
                                                     </columns>
                                                 </TableView>
                                             </children>
                                         </AnchorPane>
                                         <AnchorPane prefHeight="60.0" prefWidth="882.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                                             <children>
-                                                <Button fx:id="createReqBtn" layoutX="669.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" text="Tạo mới phiếu" AnchorPane.rightAnchor="20.0" />
+                                                <Button fx:id="createReqBtn" layoutX="669.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#redirectToCreateRequestForm" prefHeight="40.0" prefWidth="200.0" text="Tạo mới phiếu" AnchorPane.rightAnchor="20.0" />
                                     <AnchorPane layoutX="21.0" layoutY="12.0">
                                        <children>
                                                       <Label text="Quản lý báo cáo hỏng hóc">
@@ -115,11 +80,11 @@
                                         </AnchorPane>
                                     </children>
                                 </AnchorPane>
-                        <AnchorPane fx:id="equipManagementLayout" prefHeight="566.0" prefWidth="880.0">
+                        <AnchorPane fx:id="equipManagementLayout" prefHeight="566.0" prefWidth="880.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <AnchorPane prefHeight="497.0" prefWidth="882.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="63.0">
                                  <children>
-                                    <TableView fx:id="equipTable" layoutX="15.0" layoutY="14.0" prefHeight="463.0" prefWidth="845.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="14.0">
+                                    <TableView fx:id="equipTable" layoutX="15.0" layoutY="14.0" prefHeight="463.0" prefWidth="845.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
                                        <columns>
                                           <TableColumn fx:id="equipId" prefWidth="81.60000610351562" text="Mã thiết bị" />
                                           <TableColumn minWidth="0.0" prefWidth="0.0" text="Column X" />

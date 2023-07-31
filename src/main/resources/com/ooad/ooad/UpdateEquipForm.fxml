@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="650.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ooad.ooad.controller.UpdateEquipController">
     <children>
-        <Label layoutX="142.0" layoutY="29.0" text="TẠO THIẾT BỊ">
+        <Label layoutX="115.0" layoutY="27.0" text="CẬP NHẬT THIẾT BỊ">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>

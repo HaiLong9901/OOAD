@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ooad.ooad.controller.CreateRequestController">
+   <children>
+      <Label layoutX="58.0" layoutY="23.0" text="TẠO PHIẾU BÁO CÁO HỎNG HÓC">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="44.0" layoutY="75.0" text="Thiết bị" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+      <ComboBox fx:id="equipComboBox" layoutX="44.0" layoutY="103.0" prefWidth="150.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+      <Label layoutX="44.0" layoutY="148.0" text="Trạng thái" AnchorPane.leftAnchor="20.0" />
+      <ComboBox fx:id="statusComboBox" layoutX="44.0" layoutY="175.0" prefWidth="150.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+      <Label layoutX="42.0" layoutY="226.0" text="Miêu tả lỗi" AnchorPane.leftAnchor="20.0" />
+      <TextArea fx:id="descInput" layoutX="42.0" layoutY="256.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+      <Button fx:id="submitBtn" layoutX="23.0" layoutY="486.0" mnemonicParsing="false" onMouseClicked="#onSubmit" prefHeight="40.0" text="Xác nhận" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+   </children>
+</AnchorPane>

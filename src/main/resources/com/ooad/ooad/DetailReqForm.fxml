@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ooad.ooad.controller.DetailReqController">
+   <children>
+      <Label layoutX="40.0" layoutY="28.0" text="CHI TIẾT PHIẾU BÁO CÁO HỎNG HÓC">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="40.0" layoutY="83.0" text="Mã phiếu:" AnchorPane.leftAnchor="20.0" />
+      <Label layoutX="21.0" layoutY="112.0" text="Phòng:" AnchorPane.leftAnchor="20.0" />
+      <Label layoutX="18.0" layoutY="175.0" text="Trưởng phòng:" AnchorPane.leftAnchor="20.0" />
+      <Label layoutX="20.0" layoutY="206.0" text="Số điện thoại trưởng phòng:" AnchorPane.leftAnchor="20.0" />
+      <Label layoutX="19.0" layoutY="142.0" text="Địa chỉ phòng:" AnchorPane.leftAnchor="19.0" />
+      <Label layoutX="25.0" layoutY="241.0" text="Thiết bị:" AnchorPane.leftAnchor="20.0" />
+      <Label layoutX="28.0" layoutY="276.0" text="Model:" AnchorPane.leftAnchor="20.0" />
+      <Label layoutX="16.0" layoutY="310.0" text="Mã thiết bị:" AnchorPane.leftAnchor="20.0" />
+      <Label layoutX="23.0" layoutY="341.0" text="Tình trạng hoạt động:" AnchorPane.leftAnchor="20.0" />
+      <Label layoutX="28.0" layoutY="380.0" text="Mô tả chi tiết lỗi:" AnchorPane.leftAnchor="20.0" />
+      <Label fx:id="reqId" layoutX="96.0" layoutY="83.0" text="Label" />
+      <Label fx:id="depName" layoutX="73.0" layoutY="112.0" text="Label" />
+      <Label fx:id="depAddress" layoutX="110.0" layoutY="142.0" text="Label" />
+      <Label fx:id="leaderName" layoutX="122.0" layoutY="175.0" text="Label" />
+      <Label fx:id="leaderPhone" layoutX="186.0" layoutY="206.0" text="Label" />
+      <Label fx:id="equipName" layoutX="85.0" layoutY="242.0" text="Label" />
+      <Label fx:id="equipModel" layoutX="81.0" layoutY="276.0" text="Label" />
+      <Label fx:id="equipId" layoutX="99.0" layoutY="310.0" text="Label" />
+      <Label fx:id="equipStatus" layoutX="156.0" layoutY="341.0" text="Label" />
+      <Text fx:id="descFault" layoutX="127.0" layoutY="393.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+   </children>
+</AnchorPane>

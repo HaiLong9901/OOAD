@@ -2,7 +2,9 @@ package com.ooad.ooad.controller;
 
 import com.ooad.ooad.OOADApplication;
 import com.ooad.ooad.dao.EquipmentDao;
+import com.ooad.ooad.dao.RequestDao;
 import com.ooad.ooad.entity.Equipment;
+import com.ooad.ooad.entity.Request;
 import com.ooad.ooad.shared.GlobalState;
 import com.ooad.ooad.utils.AlertMessage;
 import javafx.collections.FXCollections;
@@ -108,31 +110,31 @@ public class LeaderFormController implements Initializable {
     private Button manageRequestBtn;
 
     @FXML
-    private TableColumn<?, ?> reqCode;
+    private TableColumn<Request, Integer> reqCode;
 
     @FXML
-    private TableColumn<?, ?> reqDetail;
+    private TableColumn<Request, Void> reqDetail;
 
     @FXML
-    private TableColumn<?, ?> reqError;
+    private TableColumn<Request, String> reqError;
 
     @FXML
-    private TableColumn<?, ?> reqId;
+    private TableColumn<Request, Integer> reqId;
 
     @FXML
     private AnchorPane reqManagementLayout;
 
     @FXML
-    private TableColumn<?, ?> reqName;
+    private TableColumn<Request, Integer> reqLeader;
 
     @FXML
-    private TableColumn<?, ?> reqStatus;
+    private TableColumn<Request, Boolean> reqStatus;
 
     @FXML
-    private TableView<?> reqTable;
+    private TableView<Request> reqTable;
 
     @FXML
-    private TableColumn<?, ?> reqTime;
+    private TableColumn<Request, Date> reqTime;
 
     @FXML
     private ComboBox<?> rolesComboBox;
@@ -152,6 +154,7 @@ public class LeaderFormController implements Initializable {
     private AlertMessage alert = new AlertMessage();
 
     private EquipmentDao equipmentDao = new EquipmentDao();
+    private RequestDao requestDao = new RequestDao();
 
     private Thread equipThread = new Thread() {
 
@@ -161,6 +164,25 @@ public class LeaderFormController implements Initializable {
                     try {
                         ObservableList<Equipment> equipmentList = FXCollections.observableArrayList(equipmentDao.getAllEquipment());
                         equipTable.setItems(equipmentList);
+                    }catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                    Thread.sleep(1000);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    };
+
+    private Thread requestThread = new Thread() {
+
+        public void run() {
+            try {
+                while (true) {
+                    try {
+                        ObservableList<Request> requestList = FXCollections.observableArrayList(requestDao.getAllRequestByDepId(GlobalState.loggedinLeader.getDepId()));
+                        reqTable.setItems(requestList);
                     }catch (SQLException e) {
                         e.printStackTrace();
                     }
@@ -183,14 +205,42 @@ public class LeaderFormController implements Initializable {
         }
     }
 
-    @FXML
-    void redirectToCreateDepForm(MouseEvent event) {
-
+    public void redirectToCreateRequestForm() {
+        try {
+            Parent root = FXMLLoader.load(OOADApplication.class.getResource("CreateRequestForm.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Tạo báo cáo hỏng hóc");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    @FXML
-    void switchForm(ActionEvent event) {
+    public void switchForm(ActionEvent event) {
+        if (event.getSource() == manageEquipmentBtn) {
+            reqManagementLayout.setVisible(false);
+            equipManagementLayout.setVisible(true);
+        } else if (event.getSource() == manageRequestBtn) {
+            reqManagementLayout.setVisible(true);
+            equipManagementLayout.setVisible(false);
+        }
+    }
 
+    public void logout() {
+        if (alert.confirmationMessage("Bạn muốn đăng xuất tài khoản này ?")) {
+            GlobalState.loggedinLeader = null;
+            logoutBtn.getScene().getWindow().hide();
+            try {
+                Parent root = FXMLLoader.load(OOADApplication.class.getResource("login.fxml"));
+                Stage stage = new Stage();
+                stage.setTitle("Đăng nhập");
+                stage.setScene(new Scene(root));
+                stage.show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public void displayEquipmentTable()
@@ -309,6 +359,51 @@ public class LeaderFormController implements Initializable {
         });
 
     }
+
+    public void displayRequestTable() {
+        reqId.setCellValueFactory(new PropertyValueFactory<Request, Integer>("id"));
+        reqCode.setCellValueFactory(new PropertyValueFactory<Request, Integer>("equipId"));
+        reqError.setCellValueFactory(new PropertyValueFactory<Request, String>("descfault"));
+        reqTime.setCellValueFactory(new PropertyValueFactory<Request, Date>("createdAt"));
+        reqDetail.setCellFactory(new Callback<TableColumn<Request, Void>, TableCell<Request, Void>>() {
+            @Override
+            public TableCell<Request, Void> call(TableColumn<Request, Void> leaderVoidTableColumn) {
+                return new TableCell<>() {
+                    private final Button button = new Button("Xem chi tiết");
+                    {
+                        button.setOnAction(event -> {
+                            Request request = getTableView().getItems().get(getIndex());
+                            try {
+                                GlobalState.selectedRequest = requestDao.getRequestById(request.getId());
+                                try {
+                                    Parent root = FXMLLoader.load(OOADApplication.class.getResource("DetailReqForm.fxml"));
+                                    Stage stage = new Stage();
+                                    stage.setTitle("Chi tiết báo cáo hỏng hóc");
+                                    stage.setScene(new Scene(root));
+                                    stage.show();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                            } catch (SQLException e) {
+                                e.printStackTrace();
+                            }
+                        });
+                    }
+
+                    @Override
+                    protected void updateItem(Void item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (empty) {
+                            setGraphic(null);
+                        } else {
+                            setGraphic(button);
+                        }
+                    }
+                };
+            }
+        });
+
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         userNameHeader.setText(GlobalState.loggedinLeader.getName());
@@ -316,5 +411,7 @@ public class LeaderFormController implements Initializable {
         userIdLabel.setText(Integer.toString(GlobalState.loggedinLeader.getId()));
         equipThread.start();
         displayEquipmentTable();
+        displayRequestTable();
+        requestThread.start();
     }
 }

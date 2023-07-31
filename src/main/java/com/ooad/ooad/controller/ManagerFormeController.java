@@ -197,7 +197,6 @@ public class ManagerFormeController implements Initializable {
     }
 
     public void switchForm(ActionEvent event) {
-        System.out.println(event.getSource().toString());
         if (event.getSource() == manageAccBtn) {
             depManagementLayout.setVisible(false);
             accountManagementLayout.setVisible(true);
