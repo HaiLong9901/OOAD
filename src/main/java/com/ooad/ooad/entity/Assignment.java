@@ -10,19 +10,34 @@ public class Assignment {
     private int status;
     private Date createdAt;
     private Date expectation;
-    private int equipId;
-
     public Assignment() {
     }
 
-    public Assignment(int requestId, int managerId, int empId, int status, Date createdAt, Date expectation, int equipId) {
+    public Assignment(int requestId, int managerId, int empId, int status, Date expectation) {
+        this.requestId = requestId;
+        this.managerId = managerId;
+        this.empId = empId;
+        this.status = status;
+        this.expectation = expectation;
+    }
+
+    public Assignment(int requestId, int managerId, int empId, int status, Date createdAt, Date expectation) {
         this.requestId = requestId;
         this.managerId = managerId;
         this.empId = empId;
         this.status = status;
         this.createdAt = createdAt;
         this.expectation = expectation;
-        this.equipId = equipId;
+    }
+
+    public Assignment(int id, int requestId, int managerId, int empId, int status, Date createdAt, Date expectation) {
+        this.id = id;
+        this.requestId = requestId;
+        this.managerId = managerId;
+        this.empId = empId;
+        this.status = status;
+        this.createdAt = createdAt;
+        this.expectation = expectation;
     }
 
     public int getId() {
@@ -81,13 +96,6 @@ public class Assignment {
         this.expectation = expectation;
     }
 
-    public int getEquipId() {
-        return equipId;
-    }
-
-    public void setEquipId(int equipId) {
-        this.equipId = equipId;
-    }
 
     @Override
     public String toString() {
@@ -99,7 +107,6 @@ public class Assignment {
                 ", status=" + status +
                 ", createdAt=" + createdAt +
                 ", expectation=" + expectation +
-                ", equipId=" + equipId +
                 '}';
     }
 }

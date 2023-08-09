@@ -1,5 +1,6 @@
 package com.ooad.ooad.dao;
 
+import com.ooad.ooad.entity.Employee;
 import com.ooad.ooad.entity.Manager;
 import com.ooad.ooad.utils.DBUtil;
 
@@ -99,5 +100,29 @@ public class ManagerDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public Manager getManagerById(int id) throws SQLException {
+        connection = DBUtil.connectDB();
+        String sql = "select * from ooad.manager where id=" + id;
+        Manager manager = new Manager();
+        try {
+            prepare = connection.prepareStatement(sql);
+            result = prepare.executeQuery();
+            while (result.next()) {
+                int manId = result.getInt("id");
+                String name = result.getString("name");
+                String phone = result.getString("phone");
+                String email = result.getString("email");
+                String password = result.getString("password");
+                manager.setId(id);
+                manager.setName(name);
+                manager.setEmail(email);
+                manager.setPassword(password);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return manager;
     }
 }

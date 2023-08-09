@@ -1,7 +1,9 @@
 package com.ooad.ooad.controller;
 
 import com.ooad.ooad.OOADApplication;
+import com.ooad.ooad.dao.EmployeeDao;
 import com.ooad.ooad.dao.LeaderDao;
+import com.ooad.ooad.dao.ManagerDao;
 import com.ooad.ooad.shared.GlobalState;
 import com.ooad.ooad.utils.AlertMessage;
 import com.ooad.ooad.utils.DBUtil;
@@ -48,6 +50,9 @@ public class Auth implements Initializable {
     private ResultSet result;
 
     private LeaderDao leaderDao = new LeaderDao();
+    private ManagerDao managerDao = new ManagerDao();
+
+    private EmployeeDao employeeDao = new EmployeeDao();
 
     ObservableList<String> roleList = FXCollections.observableArrayList("manager", "leader", "employee");
 
@@ -78,6 +83,7 @@ public class Auth implements Initializable {
                 if (passwordDB.equals(pass)) {
                     if (role.equals("manager")) {
                         GlobalState.managerPhone = phoneNumber;
+                        GlobalState.loggedInManager = managerDao.getManagerByPhone(phoneNumber);
                         alert.successMessage("Login successfully!");
                         System.out.println("Manager UI");
                         Parent root = FXMLLoader.load(OOADApplication.class.getResource("ManagerMainForm.fxml"));
@@ -94,7 +100,12 @@ public class Auth implements Initializable {
                         stage.setScene(new Scene(root));
                         stage.show();
                     } else {
-
+                        GlobalState.loggedInEmployee = employeeDao.getEmployeeByPhone(phoneNumber);
+                        Parent root = FXMLLoader.load(OOADApplication.class.getResource("EmployeeMainForm.fxml"));
+                        Stage stage = new Stage();
+                        stage.setTitle("Trang nhân viên");
+                        stage.setScene(new Scene(root));
+                        stage.show();
                     }
 
                     loginBtn.getScene().getWindow().hide();

@@ -63,4 +63,53 @@ public class EmployeeDao {
             e.printStackTrace();
         }
     }
+
+    public Employee getEmployeeById(int id) throws SQLException {
+        connection = DBUtil.connectDB();
+        String sql = "select * from ooad.employee where id=" + id;
+        Employee employee = new Employee();
+        try {
+            prepare = connection.prepareStatement(sql);
+            result = prepare.executeQuery();
+            while (result.next()) {
+                int empId = result.getInt("id");
+                String name = result.getString("name");
+                String phone = result.getString("phone");
+                String email = result.getString("email");
+                String password = result.getString("password");
+                employee.setId(id);
+                employee.setName(name);
+                employee.setEmail(email);
+                employee.setPassword(password);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return employee;
+    }
+
+    public Employee getEmployeeByPhone(String phone) throws SQLException {
+        connection = DBUtil.connectDB();
+        String sql = "select * from ooad.employee where phone=" + phone;
+        Employee employee = new Employee();
+        try {
+            prepare = connection.prepareStatement(sql);
+            result = prepare.executeQuery();
+            while (result.next()) {
+                int empId = result.getInt("id");
+                String name = result.getString("name");
+                String empPhone = result.getString("phone");
+                String email = result.getString("email");
+                String password = result.getString("password");
+                employee.setId(empId);
+                employee.setName(name);
+                employee.setEmail(email);
+                employee.setPassword(password);
+                employee.setPhone(empPhone);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return employee;
+    }
 }

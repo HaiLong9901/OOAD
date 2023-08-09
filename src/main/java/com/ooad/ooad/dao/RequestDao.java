@@ -73,4 +73,28 @@ public class RequestDao {
         }
         return request;
     }
+
+    public List<Request> getAllRequest() throws SQLException {
+        connection = DBUtil.connectDB();
+        String sql = "select * from ooad.request inner join ooad.leader on leader.id = request.leader order by createdat desc";
+        List<Request> requestList = new ArrayList<>();
+        try {
+            prepare = connection.prepareStatement(sql);
+            result = prepare.executeQuery();
+            while (result.next()) {
+                int id = result.getInt("id");
+                int idleader = result.getInt("leader");
+                Date createdAt = result.getDate("createdat");
+                String equipId = result.getString("equipId");
+                int dep = result.getInt("depid");
+                boolean isActive = result.getBoolean("isEquipActive");
+                String desc = result.getString("descfault");
+                Request request = new Request(id, idleader, createdAt, equipId, isActive, desc);
+                requestList.add(request);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return requestList;
+    }
 }

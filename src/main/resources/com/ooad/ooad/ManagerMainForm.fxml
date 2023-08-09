@@ -53,7 +53,7 @@
                <center>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane fx:id="accountManagementLayout" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="accountManagementLayout" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <AnchorPane prefHeight="497.0" prefWidth="882.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="63.0">
                                  <children>
@@ -130,6 +130,116 @@
                                  <children>
                                     <Button fx:id="createDepBtn" layoutX="669.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#redirectToCreateDepForm" prefHeight="40.0" prefWidth="200.0" text="Thêm phòng ban" AnchorPane.rightAnchor="20.0" />
                                     <Label layoutX="21.0" layoutY="12.0" text="Quản lý phòng ban">
+                                       <font>
+                                          <Font name="System Bold" size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="equipLayout" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane prefHeight="497.0" prefWidth="882.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="63.0">
+                                 <children>
+                                    <TableView fx:id="equipTable" layoutY="19.0" prefHeight="458.0" prefWidth="734.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                                       <columns>
+                                          <TableColumn fx:id="equipIdCol" prefWidth="81.60000610351562" text="Mã thiết bị" />
+                                          <TableColumn fx:id="equipNameCol" minWidth="0.0" prefWidth="177.60000610351562" text="Tên thiết bị" />
+                                          <TableColumn fx:id="equipModelCol" minWidth="0.0" prefWidth="98.39993286132812" text="Model" />
+                                          <TableColumn fx:id="equipPurchaseCol" prefWidth="101.60003662109375" text="Ngày mua" />
+                                          <TableColumn fx:id="equipExpiryCol" prefWidth="162.39996337890625" text="Ngày hết hạn bảo hành " />
+                                          <TableColumn fx:id="equipDepIdCol" prefWidth="98.39996337890625" text="Mã phòng" />
+                                          <TableColumn fx:id="equipDetailCol" prefWidth="122.4000244140625" text="Xem chi tiết" />
+                                       </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="60.0" prefWidth="882.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                 <children>
+                                    <Label layoutX="21.0" layoutY="12.0" text="Quản lý thiết bị">
+                                       <font>
+                                          <Font name="System Bold" size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="requestLayout" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane prefHeight="260.0" prefWidth="446.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="63.0">
+                                 <children>
+                                    <TableView fx:id="requestTable" layoutY="19.0" prefHeight="458.0" prefWidth="734.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                                       <columns>
+                                          <TableColumn fx:id="requestIdCol" prefWidth="117.60000610351562" text="Mã báo cáo " />
+                                          <TableColumn fx:id="requestLeaderIdCol" minWidth="0.0" prefWidth="141.5999755859375" text="Mã trưởng phòng" />
+                                          <TableColumn fx:id="requestCreatedAtCol" prefWidth="196.00003051757812" text="Ngày yêu cầu" />
+                                          <TableColumn fx:id="requestEquipIdCol" prefWidth="125.60003662109375" text="Mã thiết bị" />
+                                          <TableColumn fx:id="requestDetailCol" prefWidth="121.60003662109375" text="Xem chi tiết" />
+                                          <TableColumn fx:id="requestAssignCol" prefWidth="139.20001220703125" text="Giao việc" />
+                                       </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="60.0" prefWidth="882.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                 <children>
+                                    <Label layoutX="21.0" layoutY="12.0" text="Quản lý báo cáo hỏng hóc">
+                                       <font>
+                                          <Font name="System Bold" size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="assignLayout" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane prefHeight="497.0" prefWidth="882.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="63.0">
+                                 <children>
+                                    <TableView fx:id="assignmentTable" layoutY="19.0" prefHeight="458.0" prefWidth="734.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                                       <columns>
+                                          <TableColumn fx:id="assignIdCol" prefWidth="99.20001220703125" text="Mã giao việc" />
+                                          <TableColumn fx:id="assignRequestIdCol" minWidth="0.0" prefWidth="77.5999755859375" text="Mã yêu cầu" />
+                                          <TableColumn fx:id="assignEmpIdCol" prefWidth="174.39996337890625" text="Mã NV sửa chữa" />
+                                          <TableColumn fx:id="assignCreatedAtCol" prefWidth="122.4000244140625" text="Ngày yêu cầu" />
+                                          <TableColumn fx:id="assignStatusCol" prefWidth="146.39996337890625" text="Trạng thái" />
+                                          <TableColumn fx:id="assignDetailCol" minWidth="0.0" prefWidth="104.00006103515625" text="Xem chi tiết" />
+                                          <TableColumn fx:id="assignUpdateCol" prefWidth="114.39990234375" text="Cập nhật" />
+                                       </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="60.0" prefWidth="882.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                 <children>
+                                    <Label layoutX="21.0" layoutY="12.0" text="Quản lý phiếu giao việc">
+                                       <font>
+                                          <Font name="System Bold" size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="billLayout" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane prefHeight="497.0" prefWidth="882.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="63.0">
+                                 <children>
+                                    <TableView fx:id="billTable" layoutY="19.0" prefHeight="458.0" prefWidth="734.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                                       <columns>
+                                          <TableColumn fx:id="billId" prefWidth="104.80000305175781" text="Mã hóa đơn" />
+                                          <TableColumn fx:id="EmployId" minWidth="0.0" prefWidth="162.39999389648438" text="Mã nhân viên" />
+                                          <TableColumn fx:id="EquipmentId" prefWidth="123.199951171875" text="Mã thiết bị" />
+                                          <TableColumn fx:id="CreatedAt" prefWidth="164.0" text="Ngày tạo" />
+                                          <TableColumn fx:id="totalBill" minWidth="0.0" prefWidth="145.5999755859375" text="Tổng chi phí" />
+                                          <TableColumn fx:id="accDetailBill" prefWidth="140.79998779296875" text="Xem chi tiết" />
+                                       </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="60.0" prefWidth="882.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                 <children>
+                                    <Label layoutX="21.0" layoutY="12.0" text="Quản lý hóa đơn sửa chữa">
                                        <font>
                                           <Font name="System Bold" size="24.0" />
                                        </font>
