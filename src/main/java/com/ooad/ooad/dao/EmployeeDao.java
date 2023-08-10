@@ -1,6 +1,7 @@
 package com.ooad.ooad.dao;
 
 import com.ooad.ooad.entity.Employee;
+import com.ooad.ooad.entity.Manager;
 import com.ooad.ooad.utils.DBUtil;
 
 import java.sql.Connection;
@@ -28,6 +29,7 @@ public class EmployeeDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        connection.close();
     }
 
     public List<Employee> getAllEmployee() throws SQLException{
@@ -50,6 +52,7 @@ public class EmployeeDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        connection.close();
         return  employeesList;
     }
 
@@ -62,6 +65,7 @@ public class EmployeeDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        connection.close();
     }
 
     public Employee getEmployeeById(int id) throws SQLException {
@@ -85,6 +89,7 @@ public class EmployeeDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        connection.close();
         return employee;
     }
 
@@ -110,6 +115,24 @@ public class EmployeeDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        connection.close();
         return employee;
+    }
+
+    public void updateEmployee(Employee employee) throws SQLException {
+        connection = DBUtil.connectDB();
+        String sql = "update ooad.employee set name=?, phone=?, password=?, email=? where id=?";
+        try {
+            prepare = connection.prepareStatement(sql);
+            prepare.setString(1, employee.getName());
+            prepare.setString(2, employee.getPhone());
+            prepare.setString(3, employee.getPassword());
+            prepare.setString(4, employee.getEmail());
+            prepare.setInt(5, employee.getId());
+            prepare.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        connection.close();
     }
 }

@@ -29,6 +29,7 @@ public class LeaderDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        connection.close();
     }
 
     public List<Leader> getAllLeader() throws SQLException {
@@ -51,7 +52,7 @@ public class LeaderDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        connection.close();
         return leaderList;
     }
 
@@ -64,6 +65,7 @@ public class LeaderDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        connection.close();
     }
 
     public Leader getLeaderByPhone(String phone) throws SQLException {
@@ -89,6 +91,7 @@ public class LeaderDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        connection.close();
         return leader;
     }
 
@@ -115,6 +118,7 @@ public class LeaderDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        connection.close();
         return leader;
     }
 }

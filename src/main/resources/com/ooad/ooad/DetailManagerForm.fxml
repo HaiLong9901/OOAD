@@ -16,10 +16,10 @@
          </font>
       </Label>
       <Label layoutX="30.0" layoutY="72.0" text="Mã quản lý:" />
-      <Label fx:id="managerId" layoutX="129.0" layoutY="72.0" />
-      <Label fx:id="managerName" layoutX="129.0" layoutY="103.0" />
-      <Label fx:id="managerPhone" layoutX="129.0" layoutY="136.0" />
-      <Label fx:id="managerEmail" layoutX="129.0" layoutY="168.0" />
-      <Label fx:id="managerPassword" layoutX="129.0" layoutY="200.0" />
+      <Label fx:id="empId" layoutX="129.0" layoutY="72.0" />
+      <Label fx:id="empName" layoutX="129.0" layoutY="103.0" />
+      <Label fx:id="empPhone" layoutX="129.0" layoutY="136.0" />
+      <Label fx:id="empEmail" layoutX="129.0" layoutY="168.0" />
+      <Label fx:id="empPassword" layoutX="129.0" layoutY="200.0" />
    </children>
 </AnchorPane>

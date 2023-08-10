@@ -2,8 +2,12 @@ package com.ooad.ooad.controller;
 
 import com.ooad.ooad.OOADApplication;
 import com.ooad.ooad.dao.AssignmentDao;
+import com.ooad.ooad.dao.BillDao;
+import com.ooad.ooad.dao.EmployeeDao;
 import com.ooad.ooad.dao.ManagerDao;
 import com.ooad.ooad.entity.Assignment;
+import com.ooad.ooad.entity.Bill;
+import com.ooad.ooad.entity.Employee;
 import com.ooad.ooad.entity.Manager;
 import com.ooad.ooad.shared.GlobalState;
 import com.ooad.ooad.utils.AlertMessage;
@@ -61,28 +65,29 @@ public class EmployeeFormController implements Initializable {
     private Label assignid;
 
     @FXML
-    private TableColumn<?, ?> billDateCol;
+    private TableColumn<Bill, Date> billDateCol;
 
     @FXML
-    private TableColumn<?, ?> billDetailCol;
+    private TableColumn<Bill, Void> billDetailCol;
 
     @FXML
-    private TableColumn<?, ?> billEquimentCol;
+    private TableColumn<Bill, String> billEquimentCol;
 
     @FXML
-    private TableColumn<?, ?> billIdCol;
+    private TableColumn<Bill, Integer> billIdCol;
 
     @FXML
     private AnchorPane billLayout;
 
     @FXML
-    private TableView<?> billTable;
+    private TableView<Bill> billTable;
+
 
     @FXML
-    private TableColumn<?, ?> billTotalCol;
+    private TableColumn<Bill, Long> billTotalCol;
 
     @FXML
-    private TableColumn<?, ?> billUpdateCol;
+    private TableColumn<Bill, String> billEmpCol;
 
     @FXML
     private Label billsId;
@@ -115,6 +120,7 @@ public class EmployeeFormController implements Initializable {
 
     private ManagerDao managerDao = new ManagerDao();
 
+    private BillDao billDao = new BillDao();
     private AlertMessage alert = new AlertMessage();
 
     public Thread assignmentThread = new Thread() {
@@ -141,11 +147,47 @@ public class EmployeeFormController implements Initializable {
         }
     };
 
+    public Thread billThread = new Thread() {
+
+        public void run() {
+            try {
+                while (true) {
+                        try {
+                            ObservableList<Bill> billList = FXCollections.observableArrayList(billDao.getAllBillByEmployeeId(GlobalState.loggedInEmployee.getId()));
+                            billTable.setItems(billList);
+                        }catch (SQLException e) {
+                            e.printStackTrace();
+                        }
+
+                    Thread.sleep(1000);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    };
+
     public void switchForm(ActionEvent event) {
         if (event.getSource() == manageAssignBtn) {
             setAssignThreatActive(false);
+            assignLayout.setVisible(true);
+            billLayout.setVisible(false);
         } else if (event.getSource() == manageBillBtn) {
             setAssignThreatActive(true);
+            assignLayout.setVisible(false);
+            billLayout.setVisible(true);
+        }
+    }
+
+    public void redirectToCreateBillForm() {
+        try {
+            Parent root = FXMLLoader.load(OOADApplication.class.getResource("CreateBillForm.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Tạo hóa đơn");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -280,12 +322,54 @@ public class EmployeeFormController implements Initializable {
             }
         });
     }
+
+    public void displayBillTable() {
+        billIdCol.setCellValueFactory(new PropertyValueFactory<Bill, Integer>("id"));
+        billDateCol.setCellValueFactory(new PropertyValueFactory<Bill, Date>("createdAt"));
+        billEquimentCol.setCellValueFactory(new PropertyValueFactory<Bill, String>("eqipId"));
+        billTotalCol.setCellValueFactory(new PropertyValueFactory<Bill,Long>("total"));
+        billDetailCol.setCellFactory(new Callback<TableColumn<Bill, Void>, TableCell<Bill, Void>>() {
+            @Override
+            public TableCell<Bill, Void> call(TableColumn<Bill, Void> billVoidTableColumn) {
+                return new TableCell<>() {
+                    private final Button button = new Button("Xem chi tiết");
+                    {
+                        button.setOnAction(event -> {
+                            Bill bill = getTableView().getItems().get(getIndex());
+                                GlobalState.selectedBillDetail = bill;
+                                try {
+                                    Parent root = FXMLLoader.load(OOADApplication.class.getResource("DetailBillForm.fxml"));
+                                    Stage stage = new Stage();
+                                    stage.setTitle("Chi tiết hóa đơn");
+                                    stage.setScene(new Scene(root));
+                                    stage.show();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                        });
+                    }
+
+                    @Override
+                    protected void updateItem(Void item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (empty) {
+                            setGraphic(null);
+                        } else {
+                            setGraphic(button);
+                        }
+                    }
+                };
+            }
+        });
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         userNameHeader.setText(GlobalState.loggedInEmployee.getName());
         userNameLabel.setText(GlobalState.loggedInEmployee.getName());
         userIdLabel.setText(Integer.toString(GlobalState.loggedInEmployee.getId()));
         displayAssignmentTable();
+        displayBillTable();
         assignmentThread.start();
+        billThread.start();
     }
 }

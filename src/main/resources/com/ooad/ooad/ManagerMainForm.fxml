@@ -27,7 +27,6 @@
                         </AnchorPane>
                         <Label layoutX="762.0" layoutY="11.0" text="Xin chào," />
                         <Label fx:id="userNameHeader" layoutX="821.0" layoutY="11.0" text="Đỗ Hải Long" />
-                        <Label fx:id="dateHeader" layoutX="1016.0" layoutY="11.0" text="08/07/2023" />
                      </children>
                   </AnchorPane>
                </top>
@@ -53,7 +52,7 @@
                <center>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane fx:id="accountManagementLayout" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="accountManagementLayout" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <AnchorPane prefHeight="497.0" prefWidth="882.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="63.0">
                                  <children>
@@ -121,7 +120,8 @@
                                           <TableColumn minWidth="0.0" prefWidth="0.0" text="Column X" />
                                           <TableColumn minWidth="0.0" prefWidth="0.0" text="Column X" />
                                           <TableColumn fx:id="depName" prefWidth="327.20001220703125" text="Tên phòng" />
-                                          <TableColumn fx:id="depAddress" minWidth="0.0" prefWidth="328.7999267578125" text="Địa chỉ" />
+                                          <TableColumn fx:id="depAddress" minWidth="0.0" prefWidth="273.60003662109375" text="Địa chỉ" />
+                                          <TableColumn fx:id="depUpdateCol" prefWidth="155.199951171875" text="Cập nhật" />
                                        </columns>
                                     </TableView>
                                  </children>
@@ -193,7 +193,7 @@
                               </AnchorPane>
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="assignLayout" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="assignLayout" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <AnchorPane prefHeight="497.0" prefWidth="882.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="63.0">
                                  <children>
@@ -227,12 +227,12 @@
                                  <children>
                                     <TableView fx:id="billTable" layoutY="19.0" prefHeight="458.0" prefWidth="734.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
                                        <columns>
-                                          <TableColumn fx:id="billId" prefWidth="104.80000305175781" text="Mã hóa đơn" />
-                                          <TableColumn fx:id="EmployId" minWidth="0.0" prefWidth="162.39999389648438" text="Mã nhân viên" />
-                                          <TableColumn fx:id="EquipmentId" prefWidth="123.199951171875" text="Mã thiết bị" />
-                                          <TableColumn fx:id="CreatedAt" prefWidth="164.0" text="Ngày tạo" />
-                                          <TableColumn fx:id="totalBill" minWidth="0.0" prefWidth="145.5999755859375" text="Tổng chi phí" />
-                                          <TableColumn fx:id="accDetailBill" prefWidth="140.79998779296875" text="Xem chi tiết" />
+                                          <TableColumn fx:id="billIdCol" prefWidth="104.80000305175781" text="Mã hóa đơn" />
+                                          <TableColumn fx:id="billEmpCol" minWidth="0.0" prefWidth="162.39999389648438" text="Nhân viên" />
+                                          <TableColumn fx:id="billEquimentCol" prefWidth="123.199951171875" text="Mã thiết bị" />
+                                          <TableColumn fx:id="billDateCol" prefWidth="164.0" text="Ngày tạo" />
+                                          <TableColumn fx:id="billTotalcol" minWidth="0.0" prefWidth="145.5999755859375" text="Tổng chi phí" />
+                                          <TableColumn fx:id="billDetailcol" prefWidth="140.79998779296875" text="Xem chi tiết" />
                                        </columns>
                                     </TableView>
                                  </children>

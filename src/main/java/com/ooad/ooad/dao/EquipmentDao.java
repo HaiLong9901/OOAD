@@ -33,6 +33,7 @@ public class EquipmentDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        connection.close();
         return equipmentList;
     }
 
@@ -45,6 +46,7 @@ public class EquipmentDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        connection.close();
     }
 
     public void createEquipment(Equipment equipment) throws SQLException {
@@ -63,6 +65,7 @@ public class EquipmentDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        connection.close();
     }
 
     public Equipment getEquipmentById(String id) throws SQLException {
@@ -91,7 +94,7 @@ public class EquipmentDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        connection.close();
         return equipment;
     }
 
@@ -109,6 +112,7 @@ public class EquipmentDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        connection.close();
     }
 
     public List<Equipment> getEquipmentByDepId(int depId) throws SQLException {
@@ -132,6 +136,7 @@ public class EquipmentDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        connection.close();
         return equipmentList;
     }
 }

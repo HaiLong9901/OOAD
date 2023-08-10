@@ -34,6 +34,7 @@ public class AssignmentDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        connection.close();
         return assignmentList;
     }
 
@@ -51,6 +52,7 @@ public class AssignmentDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        connection.close();
     }
 
     public Assignment getAssignmentById(int id) throws SQLException {
@@ -80,6 +82,7 @@ public class AssignmentDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        connection.close();
         return assignment;
     }
 
@@ -92,6 +95,7 @@ public class AssignmentDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        connection.close();
     }
 
     public List<Assignment> getAssignmentsByEmployeeId(int id) throws SQLException {
@@ -115,6 +119,7 @@ public class AssignmentDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        connection.close();
         return assignmentList;
     }
 }

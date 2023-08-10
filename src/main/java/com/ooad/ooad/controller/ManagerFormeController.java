@@ -5,7 +5,6 @@ import com.ooad.ooad.dao.*;
 import com.ooad.ooad.entity.*;
 import com.ooad.ooad.shared.GlobalState;
 import com.ooad.ooad.utils.AlertMessage;
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -22,8 +21,6 @@ import javafx.util.Callback;
 
 import java.net.URL;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -41,6 +38,8 @@ public class ManagerFormeController implements Initializable {
     private RequestDao requestDao = new RequestDao();
 
     private AssignmentDao assignmentDao = new AssignmentDao();
+
+    private BillDao billDao = new BillDao();
     @FXML
     private AnchorPane requestLayout;
 
@@ -126,6 +125,9 @@ public class ManagerFormeController implements Initializable {
     private TableColumn<Department, Integer> depId;
     @FXML
     private TableColumn<Department, String> depName;
+
+    @FXML
+    private TableColumn<Department, Void> depUpdateCol;
 
     @FXML
     private Label userIdLabel;
@@ -254,6 +256,29 @@ public class ManagerFormeController implements Initializable {
     @FXML
     private TableView<Assignment> assignmentTable;
 
+    @FXML
+    private TableColumn<Bill, Date> billDateCol;
+
+    @FXML
+    private TableColumn<Bill, Void> billDetailcol;
+
+    @FXML
+    private TableColumn<Bill, String> billEmpCol;
+
+    @FXML
+    private TableColumn<Bill, String> billEquimentCol;
+
+    @FXML
+    private TableColumn<Bill, Integer> billIdCol;
+
+
+    @FXML
+    private TableView<Bill> billTable;
+
+    @FXML
+    private TableColumn<Bill, Long> billTotalcol;
+
+
     private AlertMessage alert = new AlertMessage();
 
     private boolean isManagerThreadActive = true;
@@ -293,12 +318,12 @@ public class ManagerFormeController implements Initializable {
             assignLayout.setVisible(false);
             billLayout.setVisible(false);
             requestLayout.setVisible(false);
-            isManagerThreadActive = true;
-            isAssignThreadActive = false;
-            isRequestThreadActive = false;
-            isEquipThreadActive = false;
-            isBillThreadActive = false;
-            isDepThreadActive = false;
+//            isManagerThreadActive = true;
+//            isAssignThreadActive = false;
+//            isRequestThreadActive = false;
+//            isEquipThreadActive = false;
+//            isBillThreadActive = false;
+//            isDepThreadActive = false;
             rolesComboBox.setValue("manager");
         } else if (event.getSource() == manageDepBtn) {
             depManagementLayout.setVisible(true);
@@ -307,12 +332,12 @@ public class ManagerFormeController implements Initializable {
             assignLayout.setVisible(false);
             billLayout.setVisible(false);
             requestLayout.setVisible(false);
-            isManagerThreadActive = false;
-            isAssignThreadActive = false;
-            isRequestThreadActive = false;
-            isEquipThreadActive = false;
-            isBillThreadActive = false;
-            isDepThreadActive = true;
+//            isManagerThreadActive = false;
+//            isAssignThreadActive = false;
+//            isRequestThreadActive = false;
+//            isEquipThreadActive = false;
+//            isBillThreadActive = false;
+//            isDepThreadActive = true;
         } else if (event.getSource() == manageEquipBtn) {
             equipLayout.setVisible(true);
             accountManagementLayout.setVisible(false);
@@ -320,12 +345,12 @@ public class ManagerFormeController implements Initializable {
             assignLayout.setVisible(false);
             billLayout.setVisible(false);
             requestLayout.setVisible(false);
-            isManagerThreadActive = false;
-            isAssignThreadActive = false;
-            isRequestThreadActive = false;
-            isEquipThreadActive = true;
-            isBillThreadActive = false;
-            isDepThreadActive = false;
+//            isManagerThreadActive = false;
+//            isAssignThreadActive = false;
+//            isRequestThreadActive = false;
+//            isEquipThreadActive = true;
+//            isBillThreadActive = false;
+//            isDepThreadActive = false;
         } else if (event.getSource() == manageAssignBtn) {
             assignLayout.setVisible(true);
             accountManagementLayout.setVisible(false);
@@ -333,12 +358,12 @@ public class ManagerFormeController implements Initializable {
             equipLayout.setVisible(false);
             billLayout.setVisible(false);
             requestLayout.setVisible(false);
-            isManagerThreadActive = false;
-            isAssignThreadActive = true;
-            isRequestThreadActive = false;
-            isEquipThreadActive = false;
-            isBillThreadActive = false;
-            isDepThreadActive = false;
+//            isManagerThreadActive = false;
+//            isAssignThreadActive = true;
+//            isRequestThreadActive = false;
+//            isEquipThreadActive = false;
+//            isBillThreadActive = false;
+//            isDepThreadActive = false;
         } else if (event.getSource() == manageBillBtn) {
             billLayout.setVisible(true);
             assignLayout.setVisible(false);
@@ -346,12 +371,12 @@ public class ManagerFormeController implements Initializable {
             depManagementLayout.setVisible(false);
             equipLayout.setVisible(false);
             requestLayout.setVisible(false);
-            isManagerThreadActive = false;
-            isAssignThreadActive = false;
-            isRequestThreadActive = false;
-            isEquipThreadActive = false;
-            isBillThreadActive = true;
-            isDepThreadActive = false;
+//            isManagerThreadActive = false;
+//            isAssignThreadActive = false;
+//            isRequestThreadActive = false;
+//            isEquipThreadActive = false;
+//            isBillThreadActive = true;
+//            isDepThreadActive = false;
         } else if (event.getSource() == manageReportBtn) {
             requestLayout.setVisible(true);
             billLayout.setVisible(false);
@@ -359,12 +384,12 @@ public class ManagerFormeController implements Initializable {
             accountManagementLayout.setVisible(false);
             depManagementLayout.setVisible(false);
             equipLayout.setVisible(false);
-            isManagerThreadActive = false;
-            isAssignThreadActive = false;
-            isRequestThreadActive = true;
-            isEquipThreadActive = false;
-            isBillThreadActive = false;
-            isDepThreadActive = false;
+//            isManagerThreadActive = false;
+//            isAssignThreadActive = false;
+//            isRequestThreadActive = true;
+//            isEquipThreadActive = false;
+//            isBillThreadActive = false;
+//            isDepThreadActive = false;
         }
 
     }
@@ -454,14 +479,12 @@ public class ManagerFormeController implements Initializable {
         public void run() {
             try {
                 while (true) {
-                    if (isManagerThreadActive) {
                         try {
                             ObservableList<Manager> managerList = FXCollections.observableArrayList(managerDao.getAllManager());
                             tableView.setItems(managerList);
                         }catch (SQLException e) {
                             e.printStackTrace();
                         }
-                    }
                     Thread.sleep(1000);
                 }
             } catch (Exception e) {
@@ -474,7 +497,6 @@ public class ManagerFormeController implements Initializable {
         public void run() {
             try {
                 while (true) {
-                    if (isEmployeeThreadActive) {
                         try {
                             List<Employee> test = employeeDao.getAllEmployee();
                             test.forEach(employee -> System.out.println(employee.toString()));
@@ -483,7 +505,6 @@ public class ManagerFormeController implements Initializable {
                         }catch (SQLException e) {
                             e.printStackTrace();
                         }
-                    }
                     Thread.sleep(1000);
                 }
             } catch (Exception e) {
@@ -496,14 +517,12 @@ public class ManagerFormeController implements Initializable {
         public void run() {
             try {
                 while (true) {
-                    if (isLeaderThreadActive) {
                         try {
                             ObservableList<Leader> leaderList = FXCollections.observableArrayList(leaderDao.getAllLeader());
                             leaderTable.setItems(leaderList);
                         }catch (SQLException e) {
                             e.printStackTrace();
                         }
-                    }
                     Thread.sleep(1000);
                 }
             } catch (Exception e) {
@@ -517,14 +536,13 @@ public class ManagerFormeController implements Initializable {
         public void run() {
             try {
                 while (true) {
-                    if (isEquipThreadActive) {
                         try {
                             ObservableList<Equipment> equipList = FXCollections.observableArrayList(equipmentDao.getAllEquipment());
                             equipTable.setItems(equipList);
                         }catch (SQLException e) {
                             e.printStackTrace();
                         }
-                    }
+
                     Thread.sleep(1000);
                 }
             } catch (Exception e) {
@@ -538,14 +556,12 @@ public class ManagerFormeController implements Initializable {
         public void run() {
             try {
                 while (true) {
-                    if (isRequestThreadActive) {
                         try {
                             ObservableList<Request> requestList = FXCollections.observableArrayList(requestDao.getAllRequest());
                             requestTable.setItems(requestList);
                         }catch (SQLException e) {
                             e.printStackTrace();
                         }
-                    }
 
                     Thread.sleep(1000);
                 }
@@ -560,14 +576,32 @@ public class ManagerFormeController implements Initializable {
         public void run() {
             try {
                 while (true) {
-                    if (isAssignThreadActive) {
                         try {
                             ObservableList<Assignment> assignmentList = FXCollections.observableArrayList(assignmentDao.getAllAssignment());
                             assignmentTable.setItems(assignmentList);
                         }catch (SQLException e) {
                             e.printStackTrace();
                         }
+                    Thread.sleep(1000);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    };
+
+    public Thread billThread = new Thread() {
+
+        public void run() {
+            try {
+                while (true) {
+                    try {
+                        ObservableList<Bill> billList = FXCollections.observableArrayList(billDao.getAllBill());
+                        billTable.setItems(billList);
+                    }catch (SQLException e) {
+                        e.printStackTrace();
                     }
+
                     Thread.sleep(1000);
                 }
             } catch (Exception e) {
@@ -738,20 +772,17 @@ public class ManagerFormeController implements Initializable {
                     {
                         button.setOnAction(event -> {
                             Employee employee = getTableView().getItems().get(getIndex());
-//                            try {
-//                                GlobalState.selectedManager = managerDao.getManagerByPhone(manager.getPhone());
-//                            } catch (SQLException e) {
-//                                e.printStackTrace();
-//                            }
-//                            try {
-//                                Parent root = FXMLLoader.load(OOADApplication.class.getResource("DetailManagerForm.fxml"));
-//                                Stage stage = new Stage();
-//                                stage.setTitle("Thông tin quản lý");
-//                                stage.setScene(new Scene(root));
-//                                stage.show();
-//                            } catch (Exception e) {
-//                                e.printStackTrace();
-//                            }
+                            System.out.println("test: " + employee.toString());
+                            GlobalState.selectedEmployee = employee;
+                            try {
+                                Parent root = FXMLLoader.load(OOADApplication.class.getResource("DetailEmployeeForm.fxml"));
+                                Stage stage = new Stage();
+                                stage.setTitle("Thông tin quản lý");
+                                stage.setScene(new Scene(root));
+                                stage.show();
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
                         });
                     }
 
@@ -804,21 +835,21 @@ public class ManagerFormeController implements Initializable {
                     private final Button button = new Button("Cập nhật");
                     {
                         button.setOnAction(event -> {
-//                            Manager manager = getTableView().getItems().get(getIndex());
-//                            try {
-//                                GlobalState.selectedManager = managerDao.getManagerByPhone(manager.getPhone());
-//                            } catch (SQLException e) {
-//                                e.printStackTrace();
-//                            }
-//                            try {
-//                                Parent root = FXMLLoader.load(OOADApplication.class.getResource("UpdateManagerForm.fxml"));
-//                                Stage stage = new Stage();
-//                                stage.setTitle("Cập nhật quản lý");
-//                                stage.setScene(new Scene(root));
-//                                stage.show();
-//                            } catch (Exception e) {
-//                                e.printStackTrace();
-//                            }
+                            Employee employee = getTableView().getItems().get(getIndex());
+                            try {
+                                GlobalState.selectedEmployee = employeeDao.getEmployeeByPhone(employee.getPhone());
+                            } catch (SQLException e) {
+                                e.printStackTrace();
+                            }
+                            try {
+                                Parent root = FXMLLoader.load(OOADApplication.class.getResource("UpdateEmployeeForm.fxml"));
+                                Stage stage = new Stage();
+                                stage.setTitle("Cập nhật nhân viên");
+                                stage.setScene(new Scene(root));
+                                stage.show();
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
                         });
                     }
 
@@ -996,6 +1027,30 @@ public class ManagerFormeController implements Initializable {
         depId.setCellValueFactory(new PropertyValueFactory<Department, Integer>("id"));
         depName.setCellValueFactory(new PropertyValueFactory<Department, String>("name"));
         depAddress.setCellValueFactory(new PropertyValueFactory<Department, String>("address"));
+        depUpdateCol.setCellFactory(new Callback<TableColumn<Department, Void>, TableCell<Department, Void>>() {
+            @Override
+            public TableCell<Department, Void> call(TableColumn<Department, Void> leaderVoidTableColumn) {
+                return new TableCell<>() {
+                    private final Button button = new Button("Cập nhật");
+                    {
+
+                        button.setOnAction(event -> {
+
+                        });
+                    }
+
+                    @Override
+                    protected void updateItem(Void item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (empty) {
+                            setGraphic(null);
+                        } else {
+                            setGraphic(button);
+                        }
+                    }
+                };
+            }
+        });
         try {
             ObservableList data = FXCollections.observableArrayList(departmentDao.getAllDepartment());
             depTable.setItems(data);
@@ -1203,6 +1258,57 @@ public class ManagerFormeController implements Initializable {
             }
         });
     }
+
+    public void displayBillTable() {
+        billIdCol.setCellValueFactory(new PropertyValueFactory<Bill, Integer>("id"));
+        billDateCol.setCellValueFactory(new PropertyValueFactory<Bill, Date>("createdAt"));
+        billEquimentCol.setCellValueFactory(new PropertyValueFactory<Bill, String>("eqipId"));
+        billTotalcol.setCellValueFactory(new PropertyValueFactory<Bill,Long>("total"));
+        billEmpCol.setCellValueFactory(celldata -> {
+            try {
+                Bill bill = celldata.getValue();
+                Employee employee = employeeDao.getEmployeeById(bill.getEmpId());
+
+                return javafx.beans.binding.Bindings.createStringBinding(() -> employee.getName());
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            return null;
+        });
+        billDetailcol.setCellFactory(new Callback<TableColumn<Bill, Void>, TableCell<Bill, Void>>() {
+            @Override
+            public TableCell<Bill, Void> call(TableColumn<Bill, Void> billVoidTableColumn) {
+                return new TableCell<>() {
+                    private final Button button = new Button("Xem chi tiết");
+                    {
+                        button.setOnAction(event -> {
+                            Bill bill = getTableView().getItems().get(getIndex());
+                            GlobalState.selectedBillDetail = bill;
+                            try {
+                                Parent root = FXMLLoader.load(OOADApplication.class.getResource("DetailBillForm.fxml"));
+                                Stage stage = new Stage();
+                                stage.setTitle("Chi tiết hóa đơn");
+                                stage.setScene(new Scene(root));
+                                stage.show();
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        });
+                    }
+
+                    @Override
+                    protected void updateItem(Void item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (empty) {
+                            setGraphic(null);
+                        } else {
+                            setGraphic(button);
+                        }
+                    }
+                };
+            }
+        });
+    }
     @Override
     public void initialize(URL location, ResourceBundle resourceBundle) {
         ObservableList<String> roleList = FXCollections.observableArrayList("manager", "leader", "employee");
@@ -1212,6 +1318,7 @@ public class ManagerFormeController implements Initializable {
         equipThread.start();
         requestThread.start();
         assignmentThread.start();
+        billThread.start();
         displayAdminAccount();
         displayManagerTable();
         displayEmployeeTable();
@@ -1220,5 +1327,6 @@ public class ManagerFormeController implements Initializable {
         displayDepartmentTable();
         displayReqestTable();
         displayAssignmentTable();
+        displayBillTable();
     }
 }

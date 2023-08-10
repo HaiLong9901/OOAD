@@ -8,7 +8,7 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ooad.ooad.controller.UpdateManagerController">
    <children>
-      <Label layoutX="48.0" layoutY="28.0" text="Cập nhật tài khoản quản lý">
+      <Label layoutX="34.0" layoutY="27.0" text="Cập nhật tài khoản nhân viên">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>

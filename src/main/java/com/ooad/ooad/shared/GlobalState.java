@@ -17,8 +17,11 @@ public class GlobalState {
 
     public static Request selectedRequest;
 
+    public static Employee selectedEmployee;
+
     public static Assignment selectedAssignment;
 
 //    public static Thread managerThread =
     public static Employee loggedInEmployee;
+    public static Bill selectedBillDetail;
 }

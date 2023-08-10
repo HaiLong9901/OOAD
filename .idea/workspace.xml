@@ -5,28 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="667a073a-0fa9-450a-856f-a3e299a99fab" name="Changes" comment="update 03/07">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/controller/AssignRequestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/controller/DetailAssignmentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/controller/EmployeeFormController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/controller/UpdateAssignmentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/dao/AssignmentDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/ooad/ooad/AssignRequestForm.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/ooad/ooad/DetailAssignmentEmployee.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/ooad/ooad/DetailAssignmentForm.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/ooad/ooad/EmployeeMainForm.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/ooad/ooad/UpdateAssignmentForm.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/controller/CreateBillController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/controller/DetailBillController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/controller/DetailEmployeeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/controller/UpdateEmployeeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/dao/BillDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/dao/BillDetailDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/ooad/ooad/CreateBillForm.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/ooad/ooad/DetailBillForm.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/ooad/ooad/DetailEmployeeForm.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/ooad/ooad/UpdateEmployeeForm.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/controller/Auth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/controller/Auth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/controller/EmployeeFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/controller/EmployeeFormController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/controller/ManagerFormeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/controller/ManagerFormeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/dao/AssignmentDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/dao/AssignmentDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/dao/DepartmentDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/dao/DepartmentDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/dao/EmployeeDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/dao/EmployeeDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/dao/EquipmentDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/dao/EquipmentDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/dao/LeaderDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/dao/LeaderDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/dao/ManagerDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/dao/ManagerDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/dao/RequestDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/dao/RequestDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/entity/Assignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/entity/Assignment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/entity/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/entity/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/entity/RequestDetail.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/entity/Bill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/entity/Bill.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/entity/BillDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/entity/BillDetail.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/shared/GlobalState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/shared/GlobalState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooad/ooad/testDAO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ooad/ooad/DetailManagerForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/ooad/ooad/DetailManagerForm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ooad/ooad/EmployeeMainForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/ooad/ooad/EmployeeMainForm.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/ooad/ooad/ManagerMainForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/ooad/ooad/ManagerMainForm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ooad/ooad/UpdateManagerForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/ooad/ooad/UpdateManagerForm.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,8 +41,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -135,7 +140,9 @@
       <workItem from="1691481233253" duration="7964000" />
       <workItem from="1691499490446" duration="2457000" />
       <workItem from="1691536655787" duration="7000" />
-      <workItem from="1691572190824" duration="10213000" />
+      <workItem from="1691572190824" duration="10619000" />
+      <workItem from="1691633242485" duration="10631000" />
+      <workItem from="1691657953334" duration="5846000" />
     </task>
     <servers />
   </component>

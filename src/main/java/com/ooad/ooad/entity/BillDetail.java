@@ -12,6 +12,14 @@ public class BillDetail {
     public BillDetail() {
     }
 
+    public BillDetail(String component, int quantity, long price, long total, String unit) {
+        this.component = component;
+        this.quantity = quantity;
+        this.price = price;
+        this.total = total;
+        this.unit = unit;
+    }
+
     public BillDetail(int billId, String component, int quantity, long price, long total, String unit) {
         this.billId = billId;
         this.component = component;

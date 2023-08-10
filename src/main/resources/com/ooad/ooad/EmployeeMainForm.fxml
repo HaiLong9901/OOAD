@@ -26,7 +26,6 @@
                                 </AnchorPane>
                                 <Label layoutX="762.0" layoutY="11.0" text="Xin chào," />
                                 <Label fx:id="userNameHeader" layoutX="821.0" layoutY="11.0" text="Đỗ Hải Long" />
-                                <Label fx:id="dateHeader" layoutX="1016.0" layoutY="11.0" text="08/07/2023" />
                             </children>
                         </AnchorPane>
                     </top>
@@ -41,7 +40,7 @@
                                 <Line endX="100.0" layoutX="110.0" layoutY="154.0" startX="-100.0" />
                                 <Button fx:id="manageAssignBtn" layoutX="11.0" layoutY="169.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="40.0" prefWidth="200.0" text="Quản lý giao việc" />
                                 <Button fx:id="manageBillBtn" layoutX="11.0" layoutY="226.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="40.0" prefWidth="200.0" text="Quản lý hóa đơn sửa chữa" />
-                                <Button fx:id="logoutBtn" layoutX="11.0" layoutY="285.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" text="Đăng xuất" onMouseClicked="#logout" />
+                                <Button fx:id="logoutBtn" layoutX="11.0" layoutY="285.0" mnemonicParsing="false" onMouseClicked="#logout" prefHeight="40.0" prefWidth="200.0" text="Đăng xuất" />
                             </children>
                         </AnchorPane>
                     </left>
@@ -54,20 +53,18 @@
                                             <children>
                                                 <TableView fx:id="billTable" prefHeight="498.0" prefWidth="881.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
                                                     <columns>
-                                                        <TableColumn fx:id="billIdCol" prefWidth="81.60000610351562" text="Mã hóa đơn" />
-                                                        <TableColumn minWidth="0.0" prefWidth="0.0" text="Column X" />
-                                                        <TableColumn fx:id="billEquimentCol" minWidth="0.0" prefWidth="151.99996948242188" text="Mã thiết bị" />
-                                                        <TableColumn fx:id="billDateCol" prefWidth="195.99996948242188" text="Ngày tạo hóa đơn" />
-                                                        <TableColumn fx:id="billTotalCol" minWidth="0.0" prefWidth="149.60003662109375" text="Tổng chi phí" />
-                                                        <TableColumn fx:id="billDetailCol" minWidth="0.0" prefWidth="131.2000732421875" text="Xem chi tiết" />
-                                                        <TableColumn fx:id="billUpdateCol" prefWidth="128.7999267578125" text="Cập nhập" />
+                                                        <TableColumn fx:id="billIdCol" prefWidth="142.4000244140625" text="Mã hóa đơn" />
+                                                        <TableColumn fx:id="billEquimentCol" minWidth="0.0" prefWidth="212.79998779296875" text="Mã thiết bị" />
+                                                        <TableColumn fx:id="billDateCol" prefWidth="198.4000244140625" text="Ngày tạo hóa đơn" />
+                                                        <TableColumn fx:id="billTotalCol" minWidth="0.0" prefWidth="154.39996337890625" text="Tổng chi phí" />
+                                                        <TableColumn fx:id="billDetailCol" minWidth="0.0" prefWidth="132.800048828125" text="Xem chi tiết" />
                                                     </columns>
                                                 </TableView>
                                             </children>
                                         </AnchorPane>
                                         <AnchorPane prefHeight="60.0" prefWidth="882.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                                             <children>
-                                                <Button fx:id="createBillBtn" layoutX="669.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" text="Tạo hóa đơn" AnchorPane.rightAnchor="20.0" />
+                                                <Button fx:id="createBillBtn" layoutX="669.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#redirectToCreateBillForm" prefHeight="40.0" prefWidth="200.0" text="Tạo hóa đơn" AnchorPane.rightAnchor="20.0" />
                                                 <Label fx:id="billsId" layoutX="21.0" layoutY="12.0" text="Quản lý hóa đơn sửa chữa">
                                                     <font>
                                                         <Font name="System Bold" size="24.0" />

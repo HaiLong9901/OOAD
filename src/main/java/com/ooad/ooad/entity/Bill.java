@@ -5,17 +5,31 @@ import java.util.Date;
 public class Bill {
     private int id;
     private int empId;
-    private int eqipId;
+    private String eqipId;
     private Date createdAt;
     private long total;
 
     public Bill() {
     }
 
-    public Bill(int empId, int eqipId, Date createdAt, long total) {
+    public Bill(int id, int empId, String eqipId, Date createdAt, long total) {
+        this.id = id;
         this.empId = empId;
         this.eqipId = eqipId;
         this.createdAt = createdAt;
+        this.total = total;
+    }
+
+    public Bill(int empId, String eqipId, Date createdAt, long total) {
+        this.empId = empId;
+        this.eqipId = eqipId;
+        this.createdAt = createdAt;
+        this.total = total;
+    }
+
+    public Bill(int empId, String eqipId, long total) {
+        this.empId = empId;
+        this.eqipId = eqipId;
         this.total = total;
     }
 
@@ -35,11 +49,11 @@ public class Bill {
         this.empId = empId;
     }
 
-    public int getEqipId() {
+    public String getEqipId() {
         return eqipId;
     }
 
-    public void setEqipId(int eqipId) {
+    public void setEqipId(String eqipId) {
         this.eqipId = eqipId;
     }
 

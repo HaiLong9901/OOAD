@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ooad.ooad.controller.DetailBillController">
+   <children>
+      <Label layoutX="207.0" layoutY="27.0" text="HÓA ĐƠN SỬA CHỮA">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="46.0" layoutY="65.0" text="Nhân viên sửa chữa:" AnchorPane.leftAnchor="20.0" />
+      <Label layoutX="46.0" layoutY="101.0" text="Mã nhân viên:" AnchorPane.leftAnchor="20.0" />
+      <Label layoutX="46.0" layoutY="131.0" text="Thiết bị:" AnchorPane.leftAnchor="20.0" />
+      <Label layoutX="46.0" layoutY="162.0" text="Mã thiết bị:" AnchorPane.leftAnchor="20.0" />
+      <Label layoutX="46.0" layoutY="192.0" text="Phòng:" AnchorPane.leftAnchor="20.0" />
+      <Label layoutX="46.0" layoutY="224.0" text="Ngày sửa:" AnchorPane.leftAnchor="20.0" />
+      <Label layoutX="46.0" layoutY="254.0" text="Bảng linh kiện" AnchorPane.leftAnchor="20.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TableView fx:id="componentTable" layoutX="46.0" layoutY="290.0" prefHeight="227.0" prefWidth="560.0" AnchorPane.bottomAnchor="83.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="290.0">
+        <columns>
+          <TableColumn fx:id="componentCol" prefWidth="149.60000228881836" text="Linh kiện" />
+          <TableColumn fx:id="unitCol" prefWidth="96.00001525878906" text="Đơn vị" />
+            <TableColumn fx:id="priceCol" prefWidth="115.199951171875" text="Giá" />
+            <TableColumn fx:id="quantCol" prefWidth="83.20001220703125" text="Số lượng" />
+            <TableColumn fx:id="grossCol" prefWidth="117.5999755859375" text="Thành tiền" />
+        </columns>
+      </TableView>
+      <Label fx:id="empName" layoutX="142.0" layoutY="65.0" text="Label" />
+      <Label fx:id="empId" layoutX="99.0" layoutY="101.0" text="Label" />
+      <Label fx:id="equipName" layoutX="73.0" layoutY="131.0" text="Label" />
+      <Label fx:id="equipId" layoutX="99.0" layoutY="162.0" text="Label" />
+      <Label fx:id="dep" layoutX="67.0" layoutY="192.0" text="Label" />
+      <Label fx:id="date" layoutX="81.0" layoutY="224.0" text="Label" />
+      <Label layoutX="271.0" layoutY="543.0" text="TỔNG:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="total" layoutX="346.0" layoutY="543.0" text="Label">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

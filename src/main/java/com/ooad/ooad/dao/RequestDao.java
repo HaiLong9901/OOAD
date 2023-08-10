@@ -25,6 +25,7 @@ public class RequestDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        connection.close();
     }
 
     public List<Request> getAllRequestByDepId(int depId) throws SQLException {
@@ -48,6 +49,7 @@ public class RequestDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        connection.close();
         return requestList;
     }
 
@@ -71,6 +73,7 @@ public class RequestDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        connection.close();
         return request;
     }
 
@@ -95,6 +98,7 @@ public class RequestDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        connection.close();
         return requestList;
     }
 }

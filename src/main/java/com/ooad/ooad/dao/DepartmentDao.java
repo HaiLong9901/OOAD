@@ -32,6 +32,7 @@ public class DepartmentDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        connection.close();
         return depList;
     }
 
@@ -46,6 +47,7 @@ public class DepartmentDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        connection.close();
     }
 
     public Department getDepartmentById(int id) throws SQLException {
@@ -64,6 +66,7 @@ public class DepartmentDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        connection.close();
         return department;
     }
 }

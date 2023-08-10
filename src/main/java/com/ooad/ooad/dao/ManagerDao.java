@@ -35,6 +35,7 @@ public class ManagerDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        connection.close();
         return null;
     }
 
@@ -57,6 +58,7 @@ public class ManagerDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        connection.close();
         return managerList;
     }
 
@@ -73,6 +75,7 @@ public class ManagerDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        connection.close();
     }
 
     public void deleteManager(int managerId) throws SQLException{
@@ -84,6 +87,7 @@ public class ManagerDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        connection.close();
     }
 
     public void updateManager(Manager manager) throws SQLException {
@@ -100,6 +104,7 @@ public class ManagerDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        connection.close();
     }
 
     public Manager getManagerById(int id) throws SQLException {
@@ -123,6 +128,7 @@ public class ManagerDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        connection.close();
         return manager;
     }
 }
